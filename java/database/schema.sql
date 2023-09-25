@@ -1,8 +1,7 @@
+ROLLBACK;
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS pet_information;
-DROP TABLE IF EXISTS volunteer_information;
+DROP TABLE IF EXISTS users, pet_information, volunteer_information CASCADE;
 
 DROP SEQUENCE IF EXISTS seq_pet_id;
 DROP SEQUENCE IF EXISTS seq_volunteer_app_id;
