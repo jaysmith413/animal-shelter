@@ -56,4 +56,19 @@ CREATE TABLE volunteer_information(
 	CONSTRAINT FK_volunteer_user_id FOREIGN KEY (volunteer_user_id) REFERENCES users (user_id)
 );
 
+INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
+VALUES ('peanut', 'dog', 6, 'female', 'no', 'yes', 'n/a', 'lazy, nervous', 'yes', 'yes');
+
+INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
+VALUES ('clifford', 'dog', 9, 'female', 'no', 'yes', 'n/a', 'larger than life, red', 'yes', 'yes');
+
+INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
+VALUES ('doggy', 'dog', 16, 'male', 'yes - diabetes', 'no', 'n/a', 'loves being active and going on walks', 'no', 'no');
+
+INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
+VALUES ('fluffy', 'cat', 8, 'female', 'yes- blind', 'no', 'n/a', 'hides often', 'no', 'yes');
+
+INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
+VALUES ('frizzle', 'bird', 8, 'female', 'no', 'yes', 'n/a', 'loud, loves to bite', 'yes', 'no');
+
 COMMIT TRANSACTION;
