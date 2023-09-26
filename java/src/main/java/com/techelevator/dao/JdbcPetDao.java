@@ -26,7 +26,7 @@ public class JdbcPetDao implements PetDao
 
         List<Pet> pets = new ArrayList<>();
         while(results.next()) {
-            Pet pet = new Pet();
+            Pet pet;
             pet = mapRowToPet(results);
 
             pets.add(pet);

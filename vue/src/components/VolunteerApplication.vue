@@ -60,8 +60,8 @@ return {
         phoneNumber: '',
         allergies: '',
 
+        }
     }
-}
 },
 methods: {
     submitForm() {
@@ -69,8 +69,9 @@ PetService.processApplication(this.application).then(
     response => {if(response.status == 200) {
         window.alert('Application added')
         // push them back to another component
+        this.$router.push("/")
+        }
     }
-}
 )
     },
     changeOverEighteen() {

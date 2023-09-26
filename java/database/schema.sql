@@ -19,7 +19,7 @@ CREATE TABLE users (
 	role varchar(50) NOT NULL,
 	first_name varchar(50),
 	last_name varchar(50),
-	phone_number int,
+	phone_number varchar(20),
 	email_address varchar(80)
 );
 
@@ -53,7 +53,7 @@ CREATE TABLE volunteer_information(
 	volunteer_user_id int,
 	first_name varchar(20),
 	last_name varchar(20),
-	phone_number int(10),
+	phone_number varchar(20),
 	email_address varchar(50),
 	over_eighteen boolean,
 	approved varchar(20),

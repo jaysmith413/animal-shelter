@@ -21,11 +21,4 @@ public class PetController
     {
         return dao.getAllPets();
     }
-
-    @RequestMapping(path="/apply", method = RequestMethod.POST)
-    public void submitApplication(@RequestBody VolunteerApplication application){
-        System.out.println(application);
-        // you need to have the right DAO methods to insert application
-        // into the database
-    }
 }
