@@ -8,7 +8,7 @@
         <td>{{pet.name}}</td>
         <td>{{pet.type}}</td>
         <td>{{pet.adopted}}</td>
-        <td>{{ pet.picture }}</td>
+        <img v-bind:src="pet.image">
         
       </tr>
     </table>
