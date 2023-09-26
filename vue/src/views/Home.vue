@@ -8,6 +8,7 @@
         <td>{{pet.name}}</td>
         <td>{{pet.type}}</td>
         <td>{{pet.adopted}}</td>
+        <td>{{ pet.picture }}</td>
         
       </tr>
     </table>

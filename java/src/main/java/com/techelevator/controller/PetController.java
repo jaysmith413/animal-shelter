@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@PreAuthorize("isAuthenticated()")
 public class PetController
 {
     @Autowired
