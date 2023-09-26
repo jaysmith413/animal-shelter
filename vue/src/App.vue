@@ -5,6 +5,6 @@
       <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token === ''">Login</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
-    <router-view />
+    <router-view/>
   </div>
 </template>
