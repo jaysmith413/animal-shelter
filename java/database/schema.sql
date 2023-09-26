@@ -48,10 +48,17 @@ START WITH 2001
 NO MAXVALUE;
 
 CREATE TABLE volunteer_information(
+
 	application_id int NOT NULL DEFAULT nextval('seq_volunteer_app_id') PRIMARY KEY,
 	volunteer_user_id int,
+	first_name varchar(20),
+	last_name varchar(20),
+	phone_number int(10),
+	email_address varchar(50),
 	over_eighteen boolean,
 	approved varchar(20),
+	allergies varchar(100),
+	skills varchar (100),
 	
 	CONSTRAINT FK_volunteer_user_id FOREIGN KEY (volunteer_user_id) REFERENCES users (user_id)
 );
