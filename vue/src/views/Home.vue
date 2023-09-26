@@ -1,12 +1,36 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>If you are seeing this, you are authenticated.</p>
+    <table>
+      <tr v-for="pet in pets" v-bind:key="pet.id">
+        
+        <td>{{pet.age}}</td>
+        <td>{{pet.name}}</td>
+        <td>{{pet.type}}</td>
+        <td>{{pet.adopted}}</td>
+        
+      </tr>
+    </table>
   </div>
 </template>
 
 <script>
+
+import petService from '../services/PetService.js';
+
 export default {
-  name: "home"
+  name: "home",
+  data(){
+    return {
+      pets:[]
+    }
+  },
+  created(){
+    petService.getAllPets().then(
+      (resp) => {
+        this.pets = resp.data;
+      }
+    );
+  }
 };
 </script>
