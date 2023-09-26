@@ -1,15 +1,10 @@
 package com.techelevator.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import java.util.HashSet;
-import java.util.Set;
-
 public class VolunteerApplication {
 
     private String firstName;
     private String lastName;
-    private int phoneNumber;
+    private String phoneNumber;
 
     private String emailAddress;
 
@@ -39,11 +34,11 @@ public class VolunteerApplication {
         this.lastName = lastName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -103,5 +98,18 @@ public class VolunteerApplication {
         this.approved = approved;
    }
 
-
+    @Override
+    public String toString() {
+        return "VolunteerApplication{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", applicationId=" + applicationId +
+                ", overEighteen=" + overEighteen +
+                ", approved='" + approved + '\'' +
+                ", allergies='" + allergies + '\'' +
+                ", skills='" + skills + '\'' +
+                '}';
+    }
 }
