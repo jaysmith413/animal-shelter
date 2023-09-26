@@ -64,10 +64,10 @@ CREATE TABLE volunteer_information(
 );
 
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
-VALUES ('peanut', 'dog', 6, 'female', 'no', 'yes', 'https://www.rd.com/wp-content/uploads/2020/09/GettyImages-1202273839-scaled-e1664551518160.jpg', 'lazy, nervous', 'yes', 'yes');
+VALUES ('peanut', 'dog', 6, 'female', 'no', 'yes', 'https://tse1.mm.bing.net/th?q=homophobic%20dog%20template', 'lazy, nervous', 'yes', 'yes');
 
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
-VALUES ('clifford', 'dog', 9, 'female', 'no', 'yes', 'https://static.wikia.nocookie.net/p__/images/3/37/Clifford_%28OG%29.png/revision/latest?cb=20220507040204&path-prefix=protagonist', 'larger than life, red', 'yes', 'yes');
+VALUES ('clifford', 'dog', 9, 'female', 'no', 'yes', 'https://m.media-amazon.com/images/I/81F0PqLk8yL._UF1000,1000_QL80_.jpg', 'larger than life, red', 'yes', 'yes');
 
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
 VALUES ('doggy', 'dog', 16, 'male', 'yes - diabetes', 'no', 'https://www.thesprucepets.com/thmb/HKCGLfgi4t2x34XDNLZ8_iK-HAk=/6000x0/filters:no_upscale():strip_icc()/rules-for-walking-your-dog-1117437-06-c93d684a3f3149958c316fb2dc6c7f57.jpg', 'loves being active and going on walks', 'no', 'no');
