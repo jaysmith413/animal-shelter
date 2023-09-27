@@ -8,6 +8,17 @@ import router from './router';
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       <router-link v-bind:to="{ name: 'apply'}" v-if="$store.state.token === ''">Apply to be a Volunteer</router-link>
     </div>
+
     <router-view/>
   </div>
 </template>
+
+<style>
+#app{
+  margin: 0;
+}
+
+#nav{
+  background-color: #ACEB98;
+}
+</style>

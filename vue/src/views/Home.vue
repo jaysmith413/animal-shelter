@@ -3,13 +3,19 @@
     <h1>Home</h1>
     <table>
       <tr v-for="pet in pets" v-bind:key="pet.id">
-        
-        <td>{{pet.age}}</td>
+        <div id="card">
+          <img v-bind:src="pet.image">
         <td>{{pet.name}}</td>
+        <td>Age: {{pet.age}}</td>
         <td>{{pet.type}}</td>
-        <td>{{pet.adopted}}</td>
-        <img v-bind:src="pet.image">
-        
+        <td>Adoption Status: {{pet.adopted}}</td>
+        <td>Gender: {{pet.gender}}</td>
+        <td>Special Needs: {{pet.specialNeeds}}</td>
+        <td>Personality Traits: {{pet.personalityTraits}}</td>
+        <td>Good with Kids: {{pet.goodWithKids}}</td>
+        <td>Good with Other Animals: {{pet.goodWithOtherAnimals}}</td>
+        </div>
+
       </tr>
     </table>
   </div>
@@ -35,3 +41,33 @@ export default {
   }
 };
 </script>
+
+<style>
+table{
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+img{
+  height: 500px;
+  width: 500px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+#card{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+h1{
+  text-align: center;
+}
+</style>
