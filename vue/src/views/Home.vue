@@ -5,7 +5,7 @@
       <tr v-for="pet in pets" v-bind:key="pet.id">
         <div id="card">
           <img v-bind:src="pet.image">
-        <td>{{pet.name}}</td>
+        <td class="pet-name">{{pet.name}}</td>
         <td>Age: {{pet.age}}</td>
         <td>{{pet.type}}</td>
         <td>Adoption Status: {{pet.adopted}}</td>
@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 table{
   font-family: Arial, Helvetica, sans-serif;
   text-transform: capitalize;
@@ -52,22 +52,27 @@ table{
 }
 
 img{
-  height: 500px;
-  width: 500px;
+  height: 350px;
+  width: 350px;
   overflow: hidden;
   object-fit: cover;
 }
 
 #card{
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  margin-bottom: 24px;
+  margin: 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  margin-left: 24px;
-  margin-right: 24px;
 }
 
 h1{
   text-align: center;
+}
+
+.pet-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #46ACC2;
 }
 </style>
