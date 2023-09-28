@@ -16,7 +16,7 @@ public class User {
    private int phoneNumber;
    private String emailAddress;
 
-   @JsonIgnore
+//   @JsonIgnore
    private String password;
    @JsonIgnore
    private boolean activated;
