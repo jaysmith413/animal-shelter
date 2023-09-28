@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.techelevator.exception.DaoException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -80,6 +83,40 @@ public class JdbcUserDao implements UserDao {
         String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
 
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
+    }
+
+    //Used for updating password of newly approved volunteer if isAdmin is false
+    //If isAdmin is true, used for promoting user from user to admin
+    @Override
+    public User updateUser(boolean isAdmin, int id, User user) {
+
+        User updatedUser = null;
+        String sql = "UPDATE users SET " +
+                     "username=?, password_hash=?, role=? WHERE user_id=?;";
+        String password_hash = new BCryptPasswordEncoder().encode(user.getPassword());
+        String role = "";
+        if(isAdmin){
+            role = "ROLE_ADMIN";
+        } else {
+            role = "ROLE_USER";
+        }
+
+        try{
+            int numberOfRows = jdbcTemplate.update(sql, user.getUsername(), password_hash, role,
+                    id);
+
+//            if (numberOfRows == 0){
+//                throw new DaoException("Zero rows affected, expected at least one");
+//            } else {
+//                updatedUser = getUserById(user.getId());
+//            }
+            updatedUser = getUserById(user.getId());
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+        return updatedUser;
     }
 
     private User mapRowToUser(SqlRowSet rs) {
