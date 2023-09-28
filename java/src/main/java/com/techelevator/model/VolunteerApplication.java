@@ -12,7 +12,7 @@ public class VolunteerApplication {
 
     private boolean overEighteen;
 
-    private String approved;
+    private String approved = "pending";
 
     private String allergies;
 

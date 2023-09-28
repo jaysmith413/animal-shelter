@@ -5,6 +5,8 @@ import com.techelevator.model.VolunteerApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 public class VolunteerController
@@ -17,5 +19,10 @@ public class VolunteerController
         return dao.createApplication(application);
         // you need to have the right DAO methods to insert application
         // into the database
+    }
+
+    @RequestMapping(path = "/applications", method = RequestMethod.GET)
+    public List<VolunteerApplication> getAllApplications(){
+        return dao.getAllVolunteerApplications();
     }
 }

@@ -44,9 +44,10 @@ public class AuthenticationController {
         
         User user = userDao.findByUsername(loginDto.getUsername());
 
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
-        return new ResponseEntity<>(new LoginResponseDto(jwt, user), httpHeaders, HttpStatus.OK);
+    HttpHeaders httpHeaders = new HttpHeaders();
+    httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
+    return new ResponseEntity<>(new LoginResponseDto(jwt, user), httpHeaders, HttpStatus.OK);
+
     }
 
     @ResponseStatus(HttpStatus.CREATED)
