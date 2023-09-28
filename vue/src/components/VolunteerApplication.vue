@@ -3,7 +3,7 @@
 
 <div class="container">
    <div class="text">
-      Contact us Form
+      Volunteer Application
    </div>
    <form action="#">
       <div class="form-row">
@@ -273,6 +273,26 @@ body{
   display: flex;
   margin: 32px 0;
 }
+
+#over-eighteen{
+/*   
+  display: block;
+  text-align: left;
+  margin: 0px;
+  height: 15px;
+  margin-left: 25px; */
+  
+width: 15px;
+  height: 15px;
+  
+  /* -webkit-transform: scale(1.3, 1.3); */
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 5px;
+  margin-left: 225px;
+  border: 1px solid #0070BB;
+}
+
 form .form-row .input-data{
   width: 100%;
   height: 40px;
