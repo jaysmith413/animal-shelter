@@ -18,7 +18,7 @@ public class User {
 
 //   @JsonIgnore
    private String password;
-   @JsonIgnore
+//   @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
 

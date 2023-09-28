@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Application from '../views/Application.vue'
+import FirstLoginView from '../views/FirstLoginView.vue'
 
 Vue.use(Router)
 
@@ -58,6 +59,14 @@ const router = new Router({
       path: "/apply",
       name: "apply",
       component: Application,
+      meta: {
+        requiresAuth: false
+      }
+    }, 
+    {
+      path: "/changepassword/:id",
+      name: "change-password",
+      component: FirstLoginView,
       meta: {
         requiresAuth: false
       }
