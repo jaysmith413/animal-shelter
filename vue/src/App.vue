@@ -3,7 +3,7 @@ import router from './router';
 <template>
   <div id="app">
     <div id="nav">
-      <img src="../src/img/logo-for-capBEST.png" alt="logo" id="logo">
+      <img src="../src/img/Cheers.png" alt="logo" id="logo">
       <router-link v-bind:to="{ name: 'home' }" class="button">Home</router-link>
       <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token === ''" class="button">Login</router-link>
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class="button">Logout</router-link>
