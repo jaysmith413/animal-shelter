@@ -45,7 +45,7 @@ export default {
           if (response.status == 200) {
             this.$store.state.user.hasLoggedIn = true
             this.$router.push({
-                path: '/',
+                path: '/logout',
                 
               });
           }
