@@ -6,8 +6,4 @@ export default {
         return axios.get("/pets");
     },
 
-    processApplication(application) {
-        return axios.post("/apply", application);
-    }
-
 }

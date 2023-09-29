@@ -41,11 +41,11 @@
           <label for="over-eighteen" class="subtitle">Are you over the age of 18?</label>
           <ul class='checkboxes'>
             <li class='checkbox'>
-              <input class='checkbox-input' id='true' name='true' type='checkbox' value='true' v-model="application.overEighteen">
+              <input class='checkbox-input' id='true' name='true' type='radio' value='true' v-model="application.overEighteen">
               <label class='checkbox-label' for='true'>Yes</label>
             </li>
             <li class='checkbox'>
-              <input class='checkbox-input' id='false' name='false' type='checkbox' value='false' v-model="application.overEighteen">
+              <input class='checkbox-input' id='false' name='false' type='radio' value='false' v-model="application.overEighteen">
               <label class='checkbox-label' for='false'>No</label>
             </li>
           </ul>
@@ -56,23 +56,23 @@
             <label class='label' style="font-weight: bold; font-size:16px; font-size: 24px;">Allergies?</label>
               <ul class='checkboxes'>
                 <li class='checkbox'>
-                  <input class='checkbox-input' id='choice-A' name='choice' type='checkbox' value='A' v-model="application.allergies">
+                  <input class='checkbox-input' id='choice-A' name='choice' type='checkbox' value='A' v-model="application.dander">
                   <label class='checkbox-label' for='choice-A'> Dander</label>
                 </li>
                 <li class='checkbox'>
-                 <input class='checkbox-input' id='choice-B' name='choice' type='checkbox' value='B' v-model="application.allergies">
+                 <input class='checkbox-input' id='choice-B' name='choice' type='checkbox' value='B' v-model="application.pollen">
                  <label class='checkbox-label' for='choice-B'> Pollen</label>
                 </li>
                 <li class='checkbox'>
-                  <input class='checkbox-input' id='choice-C' name='choice' type='checkbox' value='C' v-model="application.allergies">
+                  <input class='checkbox-input' id='choice-C' name='choice' type='checkbox' value='C' v-model="application.mold">
                   <label class='checkbox-label' for='choice-C'> Mold</label>
                 </li>
                 <li class='checkbox'>
-                  <input class='checkbox-input' id='choice-D' name='choice' type='checkbox' value='D' v-model="application.allergies">
+                  <input class='checkbox-input' id='choice-D' name='choice' type='checkbox' value='D' v-model="application.houseCleaners">
                   <label class='checkbox-label' for='choice-D'> House Cleaners</label>
                 </li>
                 <li class='checkbox'>
-                  <input class='checkbox-input' id='choice-E' name='choice' type='checkbox' value='E' v-model="application.allergies">
+                  <input class='checkbox-input' id='choice-E' name='choice' type='checkbox' value='E' >
                   <label class='checkbox-label' for='choice-E'> Other</label>
                 </li>
               </ul>
@@ -80,7 +80,7 @@
         </div>
         <div class="form-row">
           <div class="input-data textarea">
-            <textarea rows="8" cols="80" required></textarea>
+            <input type="text"  required v-model="application.allergies">
             <br />
             <div class="underline"></div>
             <label for="">If you selected other, please list them here.</label>
@@ -93,43 +93,43 @@
             <label class='label' style="font-weight: bold;font-size: 24px;">Skills</label>
               <ul class='checkboxes'>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-0' name='choice' type='checkbox' value='0' v-model="application.skills">
+                <input class='checkbox-input' id='choice-0' name='choice' type='checkbox' value='0' v-model="application.animalCare">
                 <label class='checkbox-label' for='choice-0'> Animal Care</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='1' v-model="application.skills">
+                <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='1' v-model="application.grooming">
                 <label class='checkbox-label' for='choice-1'> Grooming</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-2' name='choice'   type='checkbox' value='2' v-model="application.skills">
+                <input class='checkbox-input' id='choice-2' name='choice'   type='checkbox' value='2' v-model="application.cleaningKennels">
                 <label class='checkbox-label' for='choice-2'> Cleaning Kennels</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='3' v-model="application.skills">
+                <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='3' v-model="application.walkingDogs">
                 <label class='checkbox-label' for='choice-3'> Walking Dogs</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='4' v-model="application.skills">
+                <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='4' v-model="application.catWhisperer">
                 <label class='checkbox-label' for='choice-4'> Cat Whisperer</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-5' name='choice' type='checkbox' value='5' v-model="application.skills">
+                <input class='checkbox-input' id='choice-5' name='choice' type='checkbox' value='5' v-model="application.customerService">
                 <label class='checkbox-label' for='choice-5'> Customer Service </label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-6' name='choice' type='checkbox' value='6' v-model="application.skills">
+                <input class='checkbox-input' id='choice-6' name='choice' type='checkbox' value='6' v-model="application.liftOverThirtyPounds">
                 <label class='checkbox-label' for='choice-6'> Can lift over 30lbs</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-7' name='choice' type='checkbox' value='7' v-model="application.skills">
+                <input class='checkbox-input' id='choice-7' name='choice' type='checkbox' value='7' v-model="application.laundry">
                 <label class='checkbox-label' for='choice-7'> Laundry</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-8' name='choice' type='checkbox' value='8' v-model="application.skills">
+                <input class='checkbox-input' id='choice-8' name='choice' type='checkbox' value='8' v-model="application.stockingSupplies">
                 <label class='checkbox-label' for='choice-8'> Stocking Supplies</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-9' name='choice' type='checkbox' value='9' v-model="application.skills">
+                <input class='checkbox-input' id='choice-9' name='choice' type='checkbox' value='9' >
                 <label class='checkbox-label' for='choice-9'> Other</label>
                 </li>
               </ul>
@@ -138,7 +138,7 @@
             
           <div class="form-row">
             <div class="input-data textarea">
-              <textarea rows="8" cols="80" required></textarea>
+              <textarea rows="8" cols="80" required v-model="application.skills"></textarea>
               <br />
               <div class="underline"></div>
               <label for="">If you selected other, please list them here.</label>
@@ -213,9 +213,22 @@ return {
         overEighteen: false,
         firstName: '',
         lastName: '',
+        animalCare: false,
+        grooming: false,
+        cleaningKennels: false,
+        walkingDogs: false,
+        catWhisperer: false,
+        customerService: false,
+        liftOverThirtyPounds: false,
+        laundry: false,
+        stockingSupplies: false,
         skills: '',
         emailAddress: '',
         phoneNumber: '',
+        mold: false,
+        dander: false,
+        pollen: false,
+        householdCleaners: false,
         allergies: '',
 
         }
