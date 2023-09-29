@@ -68,6 +68,7 @@ public class AuthenticationController {
     @RequestMapping(value = "/changepassword/{id}", method = RequestMethod.PUT)
     public void changePassword(@PathVariable int id, @RequestBody User user, Principal principal){
         userDao.updateUser(false, id, user);
+
     }
 
 }

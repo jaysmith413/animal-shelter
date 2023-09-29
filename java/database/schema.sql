@@ -21,7 +21,7 @@ CREATE TABLE users (
 	last_name varchar(50),
 	phone_number varchar(20),
 	email_address varchar(80),
-	activated boolean DEFAULT false
+	has_logged_in boolean DEFAULT false
 );
 
 CREATE SEQUENCE seq_pet_id

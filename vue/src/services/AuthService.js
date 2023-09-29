@@ -11,6 +11,7 @@ export default {
   }, 
 
   changePassword(user) {
+    console.log(user.id)
     return axios.put(`/changepassword/${user.id}`, user)
   }
 

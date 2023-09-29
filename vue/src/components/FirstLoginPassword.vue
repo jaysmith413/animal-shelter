@@ -23,6 +23,8 @@ export default {
     data() {
     return {
       user: {
+        id: this.$store.state.user.id,
+        username: this.$store.state.user.username,
         password: '',
         confirmPassword: '',
         role: 'user',
@@ -38,9 +40,10 @@ export default {
         this.registrationErrorMsg = 'Password & Confirm Password do not match.';
       } else {
         AuthService
-        .changePassword(this.$store.state.user)
+        .changePassword(this.user)
         .then((response) => {
-          if (response.status == 201) {
+          if (response.status == 200) {
+            this.$store.state.user.hasLoggedIn = true
             this.$router.push({
                 path: '/',
                 
