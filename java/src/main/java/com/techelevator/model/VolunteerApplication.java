@@ -26,7 +26,90 @@ public class VolunteerApplication {
     @JsonProperty("allergies")
     private String otherAllergies;
 
+    private boolean animalCare;
+    private boolean grooming;
+    private boolean cleaningKennels;
+    private boolean walkingDogs;
+    private boolean catWhisperer;
+    private boolean customerService;
+    private boolean liftOverThirtyPounds;
+    private boolean laundry;
+    private boolean stockingSupplies;
+
     private String skills;
+
+    public boolean isAnimalCare() {
+        return animalCare;
+    }
+
+    public void setAnimalCare(boolean animalCare) {
+        this.animalCare = animalCare;
+    }
+
+    public boolean isGrooming() {
+        return grooming;
+    }
+
+    public void setGrooming(boolean grooming) {
+        this.grooming = grooming;
+    }
+
+    public boolean isCleaningKennels() {
+        return cleaningKennels;
+    }
+
+    public void setCleaningKennels(boolean cleaningKennels) {
+        this.cleaningKennels = cleaningKennels;
+    }
+
+    public boolean isWalkingDogs() {
+        return walkingDogs;
+    }
+
+    public void setWalkingDogs(boolean walkingDogs) {
+        this.walkingDogs = walkingDogs;
+    }
+
+    public boolean isCatWhisperer() {
+        return catWhisperer;
+    }
+
+    public void setCatWhisperer(boolean catWhisperer) {
+        this.catWhisperer = catWhisperer;
+    }
+
+    public boolean isCustomerService() {
+        return customerService;
+    }
+
+    public void setCustomerService(boolean customerService) {
+        this.customerService = customerService;
+    }
+
+    public boolean isLiftOverThirtyPounds() {
+        return liftOverThirtyPounds;
+    }
+
+    public void setLiftOverThirtyPounds(boolean liftOverThirtyPounds) {
+        this.liftOverThirtyPounds = liftOverThirtyPounds;
+    }
+
+    public boolean isLaundry() {
+        return laundry;
+    }
+
+    public void setLaundry(boolean laundry) {
+        this.laundry = laundry;
+    }
+
+    public boolean isStockingSupplies() {
+        return stockingSupplies;
+    }
+
+    public void setStockingSupplies(boolean stockingSupplies) {
+        this.stockingSupplies = stockingSupplies;
+    }
+
     public boolean isDander() {
         return dander;
     }

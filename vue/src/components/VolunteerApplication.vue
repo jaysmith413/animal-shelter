@@ -93,42 +93,42 @@
             <label class="label subtitle">Skills</label>
               <ul class='checkboxes'>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-0' name='choice' type='checkbox' value='0' v-model="application.skills">
+                <input class='checkbox-input' id='choice-0' name='choice' type='checkbox' value='0' v-model="application.animalCare">
                 <label class='checkbox-label' for='choice-0'> Animal Care</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='1' v-model="application.skills">
+                <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='1' v-model="application.grooming">
                 <label class='checkbox-label' for='choice-1'> Grooming</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-2' name='choice'   type='checkbox' value='2' v-model="application.skills">
+                <input class='checkbox-input' id='choice-2' name='choice'   type='checkbox' value='2' v-model="application.cleaningKennels">
                 <label class='checkbox-label' for='choice-2'> Cleaning Kennels</label>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='3' v-model="application.skills">
+                <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='3' v-model="application.walkingDogs">
                 <label class='checkbox-label' for='choice-3'> Walking Dogs</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='4' v-model="application.skills">
+                <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='4' v-model="application.catWhisperer">
                 <label class='checkbox-label' for='choice-4'> Cat Whisperer</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-5' name='choice' type='checkbox' value='5' v-model="application.skills">
+                <input class='checkbox-input' id='choice-5' name='choice' type='checkbox' value='5' v-model="application.customerService">
                 <label class='checkbox-label' for='choice-5'> Customer Service </label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-6' name='choice' type='checkbox' value='6' v-model="application.skills">
+                <input class='checkbox-input' id='choice-6' name='choice' type='checkbox' value='6' v-model="application.liftOverThirtyPounds">
                 <label class='checkbox-label' for='choice-6'> Can lift over 30lbs</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-7' name='choice' type='checkbox' value='7' v-model="application.skills">
+                <input class='checkbox-input' id='choice-7' name='choice' type='checkbox' value='7' v-model="application.laundry">
                 <label class='checkbox-label' for='choice-7'> Laundry</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-8' name='choice' type='checkbox' value='8' v-model="application.skills">
+                <input class='checkbox-input' id='choice-8' name='choice' type='checkbox' value='8' v-model="application.stockingSupplies">
                 <label class='checkbox-label' for='choice-8'> Stocking Supplies</label>
                 </li>
                 <li class='checkbox'>
-                <input class='checkbox-input' id='choice-9' name='choice' type='checkbox' value='9' v-model="application.skills">
+                <input class='checkbox-input' id='choice-9' name='choice' type='checkbox' value='9' >
                 <label class='checkbox-label' for='choice-9'> Other</label>
                 </li>
               </ul>
@@ -137,7 +137,7 @@
             
           <div class="form-row">
             <div class="input-data textarea">
-              <textarea rows="8" cols="80" required></textarea>
+              <textarea rows="8" cols="80" required v-model="application.skills"></textarea>
               <br />
               <div class="underline"></div>
               <label for="">If you selected other, please list them here.</label>
@@ -212,6 +212,15 @@ return {
         overEighteen: false,
         firstName: '',
         lastName: '',
+        animalCare: false,
+        grooming: false,
+        cleaningKennels: false,
+        walkingDogs: false,
+        catWhisperer: false,
+        customerService: false,
+        liftOverThirtyPounds: false,
+        laundry: false,
+        stockingSupplies: false,
         skills: '',
         emailAddress: '',
         phoneNumber: '',

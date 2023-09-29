@@ -25,4 +25,9 @@ public class VolunteerController
     public List<VolunteerApplication> getAllApplications(){
         return dao.getAllVolunteerApplications();
     }
+
+    @RequestMapping(path="/updateapplication/{id}", method = RequestMethod.PUT)
+    public VolunteerApplication updateApplication(@PathVariable int id, @RequestBody VolunteerApplication application){
+        return dao.updateVolunteerApplication(id, application);
+    }
 }
