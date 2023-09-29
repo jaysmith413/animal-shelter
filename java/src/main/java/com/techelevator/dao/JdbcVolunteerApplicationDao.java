@@ -26,14 +26,17 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
         VolunteerApplication createVolunteerApplication = null;
 
         String sql = "INSERT INTO volunteer_information (first_name, last_name, phone_number, email_address," +
-                " over_eighteen, approved, allergies, skills) VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING application_id;";
+                " over_eighteen, approved, dander, pollen, mold, house_cleaners, other_allergies, skills) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING application_id;";
 
         try
         {
             int createVolunteerApplicationId = jdbcTemplate.queryForObject(sql, int.class, volunteerApplication.getFirstName(),
                     volunteerApplication.getLastName(), volunteerApplication.getPhoneNumber(),
                     volunteerApplication.getEmailAddress(), volunteerApplication.isOverEighteen(),
-                    volunteerApplication.getApproved(), volunteerApplication.getAllergies(), volunteerApplication.getSkills());
+                    volunteerApplication.getApproved(), volunteerApplication.isDander(), volunteerApplication.isPollen(),
+                    volunteerApplication.isMold(), volunteerApplication.isHouseCleaners(), volunteerApplication.getAllergies(),
+                    volunteerApplication.getSkills());
 
             createVolunteerApplication = getVolunteerApplicationById(createVolunteerApplicationId);
         }
@@ -70,7 +73,8 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
     public VolunteerApplication getVolunteerApplicationById(int id)
     {
         VolunteerApplication volunteerApplication = null;
-        String sql = "SELECT first_name, last_name, phone_number, email_address, over_eighteen, approved, allergies, skills " +
+        String sql = "SELECT first_name, last_name, phone_number, email_address, over_eighteen, approved, dander, " +
+                "pollen, mold, house_cleaners, other_allergies, skills " +
                 "FROM volunteer_information WHERE application_id = ?;";
 
         try {
@@ -132,7 +136,11 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
         volunteerApplication.setPhoneNumber(results.getString("phone_number"));
         volunteerApplication.setEmailAddress(results.getString("email_address"));
         volunteerApplication.setOverEighteen(results.getBoolean("over_eighteen"));
-        volunteerApplication.setAllergies(results.getString("allergies"));
+        volunteerApplication.setDander(results.getBoolean("dander"));
+        volunteerApplication.setPollen(results.getBoolean("pollen"));
+        volunteerApplication.setMold(results.getBoolean("mold"));
+        volunteerApplication.setHouseCleaners(results.getBoolean("house_cleaners"));
+        volunteerApplication.setAllergies(results.getString("other_allergies"));
         volunteerApplication.setSkills(results.getString("skills"));
 
         return volunteerApplication;

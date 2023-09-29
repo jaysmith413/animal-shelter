@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class VolunteerApplication {
 
     private String firstName;
@@ -14,9 +16,48 @@ public class VolunteerApplication {
 
     private String approved = "pending";
 
-    private String allergies;
+
+
+    private boolean dander;
+    private boolean pollen;
+    private boolean mold;
+    private boolean houseCleaners;
+
+    @JsonProperty("allergies")
+    private String otherAllergies;
 
     private String skills;
+    public boolean isDander() {
+        return dander;
+    }
+
+    public void setDander(boolean dander) {
+        this.dander = dander;
+    }
+
+    public boolean isPollen() {
+        return pollen;
+    }
+
+    public void setPollen(boolean pollen) {
+        this.pollen = pollen;
+    }
+
+    public boolean isMold() {
+        return mold;
+    }
+
+    public void setMold(boolean mold) {
+        this.mold = mold;
+    }
+
+    public boolean isHouseCleaners() {
+        return houseCleaners;
+    }
+
+    public void setHouseCleaners(boolean houseCleaners) {
+        this.houseCleaners = houseCleaners;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -74,11 +115,11 @@ public class VolunteerApplication {
     }
 
     public String getAllergies() {
-        return allergies;
+        return otherAllergies;
     }
 
-    public void setAllergies(String allergies) {
-        this.allergies = allergies;
+    public void setAllergies(String otherAllergies) {
+        this.otherAllergies = otherAllergies;
     }
 
     public String getSkills() {
@@ -108,7 +149,7 @@ public class VolunteerApplication {
                 ", applicationId=" + applicationId +
                 ", overEighteen=" + overEighteen +
                 ", approved='" + approved + '\'' +
-                ", allergies='" + allergies + '\'' +
+                ", otherAllergies='" + otherAllergies + '\'' +
                 ", skills='" + skills + '\'' +
                 '}';
     }

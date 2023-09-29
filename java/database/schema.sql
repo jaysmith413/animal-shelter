@@ -58,7 +58,11 @@ CREATE TABLE volunteer_information(
 	email_address varchar(50),
 	over_eighteen boolean,
 	approved varchar(20) DEFAULT 'pending',
-	allergies varchar(1000),
+	dander boolean,
+	pollen boolean,
+	mold boolean,
+	house_cleaners boolean,
+	other_allergies varchar(1000),
 	skills varchar (1000),
 	
 	CONSTRAINT FK_volunteer_user_id FOREIGN KEY (volunteer_user_id) REFERENCES users (user_id)

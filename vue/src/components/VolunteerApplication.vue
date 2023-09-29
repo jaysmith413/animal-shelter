@@ -41,11 +41,11 @@
           <label for="over-eighteen" class="subtitle">Are you over the age of 18?</label>
           <ul class='checkboxes'>
             <li class='checkbox'>
-              <input class='checkbox-input' id='true' name='true' type='checkbox' value='true' v-model="application.overEighteen">
+              <input class='checkbox-input' id='true' name='true' type='radio' value='true' v-model="application.overEighteen">
               <label class='checkbox-label' for='true'>Yes</label>
             </li>
             <li class='checkbox'>
-              <input class='checkbox-input' id='false' name='false' type='checkbox' value='false' v-model="application.overEighteen">
+              <input class='checkbox-input' id='false' name='false' type='radio' value='false' v-model="application.overEighteen">
               <label class='checkbox-label' for='false'>No</label>
             </li>
           </ul>
@@ -56,23 +56,23 @@
             <label class="label subtitle">Allergies?</label>
               <ul class='checkboxes'>
                 <li class='checkbox'>
-                  <input class='checkbox-input' id='choice-A' name='choice' type='checkbox' value='A' v-model="application.allergies">
+                  <input class='checkbox-input' id='choice-A' name='choice' type='checkbox' value='A' v-model="application.dander">
                   <label class='checkbox-label' for='choice-A'> Dander</label>
                 </li>
                 <li class='checkbox'>
-                 <input class='checkbox-input' id='choice-B' name='choice' type='checkbox' value='B' v-model="application.allergies">
+                 <input class='checkbox-input' id='choice-B' name='choice' type='checkbox' value='B' v-model="application.pollen">
                  <label class='checkbox-label' for='choice-B'> Pollen</label>
                 </li>
                 <li class='checkbox'>
-                  <input class='checkbox-input' id='choice-C' name='choice' type='checkbox' value='C' v-model="application.allergies">
+                  <input class='checkbox-input' id='choice-C' name='choice' type='checkbox' value='C' v-model="application.mold">
                   <label class='checkbox-label' for='choice-C'> Mold</label>
                 </li>
                 <li class='checkbox'>
-                  <input class='checkbox-input' id='choice-D' name='choice' type='checkbox' value='D' v-model="application.allergies">
+                  <input class='checkbox-input' id='choice-D' name='choice' type='checkbox' value='D' v-model="application.houseCleaners">
                   <label class='checkbox-label' for='choice-D'> House Cleaners</label>
                 </li>
                 <li class='checkbox'>
-                  <input class='checkbox-input' id='choice-E' name='choice' type='checkbox' value='E' v-model="application.allergies">
+                  <input class='checkbox-input' id='choice-E' name='choice' type='checkbox' value='E' >
                   <label class='checkbox-label' for='choice-E'> Other</label>
                 </li>
               </ul>
@@ -80,7 +80,7 @@
         </div>
         <div class="form-row">
           <div class="input-data textarea">
-            <textarea rows="8" cols="80" required></textarea>
+            <input type="text"  required v-model="application.allergies">
             <br />
             <div class="underline"></div>
             <label for="">If you selected other, please list them here.</label>
@@ -215,6 +215,10 @@ return {
         skills: '',
         emailAddress: '',
         phoneNumber: '',
+        mold: false,
+        dander: false,
+        pollen: false,
+        householdCleaners: false,
         allergies: '',
 
         }
