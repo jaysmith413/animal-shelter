@@ -7,7 +7,7 @@
    <div class="text">
       Volunteer Application
    </div>
-   <form action="#">
+   <form v-on:submit.prevent="submitForm">
       <div class="form-row">
          <div class="input-data">
             <input  type="text" required id="FirstName" v-model="application.firstName">
@@ -400,7 +400,7 @@ form .form-row .input-data{
   position: relative;
 }
 form .form-row .textarea{
-  height: 70px;
+  height: 40px;
 }
 .input-data input,
 .textarea textarea{
