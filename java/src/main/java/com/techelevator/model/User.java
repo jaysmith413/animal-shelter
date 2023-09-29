@@ -18,8 +18,9 @@ public class User {
 
 //   @JsonIgnore
    private String password;
-   @JsonIgnore
+@JsonIgnore
    private boolean activated;
+private boolean hasLoggedIn;
    private Set<Authority> authorities = new HashSet<>();
 
    public User() { }
@@ -62,6 +63,14 @@ public class User {
 
    public void setActivated(boolean activated) {
       this.activated = activated;
+   }
+
+   public boolean isHasLoggedIn() {
+      return hasLoggedIn;
+   }
+
+   public void setHasLoggedIn(boolean hasLoggedIn) {
+      this.hasLoggedIn = hasLoggedIn;
    }
 
    public Set<Authority> getAuthorities() {

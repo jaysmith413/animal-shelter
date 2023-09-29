@@ -47,9 +47,10 @@ public class AuthenticationController {
         
         User user = userDao.findByUsername(loginDto.getUsername());
 
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
-        return new ResponseEntity<>(new LoginResponseDto(jwt, user), httpHeaders, HttpStatus.OK);
+    HttpHeaders httpHeaders = new HttpHeaders();
+    httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
+    return new ResponseEntity<>(new LoginResponseDto(jwt, user), httpHeaders, HttpStatus.OK);
+
     }
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -63,10 +64,11 @@ public class AuthenticationController {
         }
     }
 
-    @PreAuthorize("isAuthenticated()")
+//    @PreAuthorize("isAuthenticated()")
     @RequestMapping(value = "/changepassword/{id}", method = RequestMethod.PUT)
     public void changePassword(@PathVariable int id, @RequestBody User user, Principal principal){
         userDao.updateUser(false, id, user);
+
     }
 
 }

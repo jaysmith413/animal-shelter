@@ -32,8 +32,10 @@ export default {
   data() {
     return {
       user: {
+        id: "",
         username: "",
-        password: ""
+        password: "",
+        activated: false
       },
       invalidCredentials: false
     };
@@ -46,7 +48,16 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
+            if(this.$store.state.user.hasLoggedIn === false) {
+              let userID = this.$store.state.user.id
+              console.log(userID)
+              this.$router.push(`/changepassword/${userID}`)
+            } else {
+              console.log(this.$store.state.user.hasLoggedIn)
+              console.log(this.$store.state.user.id)
+              this.$router.push("/");
+            }
+            
           }
         })
         .catch(error => {

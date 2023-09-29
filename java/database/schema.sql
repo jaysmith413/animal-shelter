@@ -20,7 +20,8 @@ CREATE TABLE users (
 	first_name varchar(50),
 	last_name varchar(50),
 	phone_number varchar(20),
-	email_address varchar(80)
+	email_address varchar(80),
+	has_logged_in boolean DEFAULT false
 );
 
 CREATE SEQUENCE seq_pet_id
@@ -56,7 +57,7 @@ CREATE TABLE volunteer_information(
 	phone_number varchar(20),
 	email_address varchar(50),
 	over_eighteen boolean,
-	approved varchar(20),
+	approved varchar(20) DEFAULT 'pending',
 	allergies varchar(100),
 	skills varchar (100),
 	
@@ -77,5 +78,8 @@ VALUES ('fluffy', 'cat', 8, 'female', 'yes- blind', 'no', 'https://media.istockp
 
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
 VALUES ('frizzle', 'bird', 8, 'female', 'no', 'yes', 'https://assets.petco.com/petco/image/upload/f_auto,q_auto/Bird%20600x400', 'loud, loves to bite', 'yes', 'no');
+
+INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
+VALUES ('king julien', 'lemur', 18, 'male', 'no', 'yes', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ring-tailed_Lemur_Feb09.jpg/640px-Ring-tailed_Lemur_Feb09.jpg', 'loud, loves to sing', 'yes', 'yes');
 
 COMMIT TRANSACTION;

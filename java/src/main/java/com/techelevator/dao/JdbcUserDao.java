@@ -92,7 +92,7 @@ public class JdbcUserDao implements UserDao {
 
         User updatedUser = null;
         String sql = "UPDATE users SET " +
-                     "username=?, password_hash=?, role=? WHERE user_id=?;";
+                     "username=?, password_hash=?, role=?, has_logged_in= true WHERE user_id=?;";
         String password_hash = new BCryptPasswordEncoder().encode(user.getPassword());
         String role = "";
         if(isAdmin){
@@ -126,6 +126,7 @@ public class JdbcUserDao implements UserDao {
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
         user.setActivated(true);
+        user.setHasLoggedIn(rs.getBoolean("has_logged_in"));
         return user;
     }
 }
