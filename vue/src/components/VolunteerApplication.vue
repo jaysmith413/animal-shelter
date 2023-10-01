@@ -53,7 +53,7 @@
       </div>
         <div class="form-row" style="padding-top: 48px;">
          <div class='field'>
-            <label class="label subtitle">Allergies?</label>
+            <label class='label' style="font-weight: bold; font-size:16px; font-size: 24px;">Allergies?</label>
               <ul class='checkboxes'>
                 <li class='checkbox'>
                   <input class='checkbox-input' id='choice-A' name='choice' type='checkbox' value='A' v-model="application.dander">
@@ -90,7 +90,7 @@
 
         <div class="form-row" style="padding-top: 48px;">   
           <div class='field'>
-            <label class="label subtitle">Skills</label>
+            <label class='label' style="font-weight: bold;font-size: 24px;">Skills</label>
               <ul class='checkboxes'>
                 <li class='checkbox'>
                 <input class='checkbox-input' id='choice-0' name='choice' type='checkbox' value='0' v-model="application.animalCare">
@@ -103,6 +103,7 @@
                 <li class='checkbox'>
                 <input class='checkbox-input' id='choice-2' name='choice'   type='checkbox' value='2' v-model="application.cleaningKennels">
                 <label class='checkbox-label' for='choice-2'> Cleaning Kennels</label>
+                </li>
                 <li class='checkbox'>
                 <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='3' v-model="application.walkingDogs">
                 <label class='checkbox-label' for='choice-3'> Walking Dogs</label>
@@ -145,18 +146,18 @@
             </div>
           </div>
             
-          <div class="form-row">
-            <div class="input-data textarea">
-                <div class="form-row submit-btn">
-                  <div class="input-data">
-                      <div class="inner"></div>
-                      <input type="submit" value="submit">
-                  </div>
-                </div>
+      <div class="form-row">
+         <div class="input-data textarea">
+            <div class="form-row submit-btn">
+               <div class="input-data">
+                  <div class="inner"></div>
+                  <input type="submit" value="submit">
+               </div>
             </div>
-            </div>
-      </form>
-      </div>
+        </div>
+        </div>
+   </form>
+  </div>
 
 <!-- <form v-on:submit.prevent="submitForm">
     <h1>Please fill out application</h1>
@@ -203,7 +204,7 @@
 </template>
 
 <script>
-import PetService from '../services/PetService';
+import VolunteerService from '../services/VolunteerService';
 
 export default {
 data() {
@@ -235,7 +236,7 @@ return {
 },
 methods: {
     submitForm() {
-      PetService.processApplication(this.application).then(
+      VolunteerService.processApplication(this.application).then(
           response => {if(response.status == 200) {
               window.alert('Application added')
               // push them back to another component
@@ -309,6 +310,11 @@ body{
   mix-blend-mode: none;
 }
 
+
+
+
+
+
 .application-container {
   display: flex;
   flex-direction: column;
@@ -350,11 +356,6 @@ img {
   font-family: 'Poppins', sans-serif;
   color: #8E37D7;
   margin-left: 24px;
-}
-
-.subtitle {
-  font-weight: bold;
-  font-size: 24px;
 }
 
 form{
@@ -413,7 +414,7 @@ form .form-row .input-data{
   position: relative;
 }
 form .form-row .textarea{
-  height: 40px;
+  height: 70px;
 }
 .input-data input,
 .textarea textarea{
@@ -481,7 +482,6 @@ form .form-row .textarea{
   left: -100%;
   background-color: #8E37D7;
   transition: all 0.4s;
-  margin: 0;
 }
 .submit-btn .input-data:hover .inner{
   left: 0;
@@ -506,35 +506,27 @@ form .form-row .textarea{
     .container {
     max-width: 85%;
     width: 85%;
-    padding: 48px 16px 0 16px;
+    padding: 48px 16px 32px 16px;
     margin-top: -450px;
     z-index: 1;
   }
+
   .text{
     font-size: 30px;
     text-align: center;
     line-height: 40px;
     margin-left: 0;
   }
-
-  .subtitle {
-    font-size: 16px;
-  }
-
-  .checkbox {
-    width: 95%;
-  }
-
-  form {
+  form{
     padding: 10px 0 0 0;
   }
-  .form-row {
+  .form-row{
     display: block;
   }
-  form .form-row .input-data {
+  form .form-row .input-data{
     margin: 35px 0!important;
   }
-  .submit-btn .input-data {
+  .submit-btn .input-data{
     width: 100%!important;
   }
 }

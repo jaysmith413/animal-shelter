@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.VolunteerApplicationDao;
+import com.techelevator.model.User;
 import com.techelevator.model.VolunteerApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,8 @@ public class VolunteerController
     public List<VolunteerApplication> getAllApplications(){
         return dao.getAllVolunteerApplications();
     }
+
+
 
     @RequestMapping(path="/updateapplication/{id}", method = RequestMethod.PUT)
     public VolunteerApplication updateApplication(@PathVariable int id, @RequestBody VolunteerApplication application){

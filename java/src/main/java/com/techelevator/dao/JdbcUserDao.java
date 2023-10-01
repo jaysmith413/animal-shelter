@@ -65,6 +65,23 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
+    public List<User> getApprovedUsers(){
+        String sql = "SELECT first_name, last_name, phone_number, email_address FROM users";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
+        List<User> approvedUsers = new ArrayList<>();
+
+        while(results.next()){
+            User user;
+            user = mapRowToUser(results);
+
+            approvedUsers.add(user);
+        }
+        return approvedUsers;
+    }
+
+
+    @Override
     public User findByUsername(String username) {
         if (username == null) throw new IllegalArgumentException("Username cannot be null");
 
@@ -121,12 +138,26 @@ public class JdbcUserDao implements UserDao {
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
+
         user.setId(rs.getInt("user_id"));
         user.setUsername(rs.getString("username"));
         user.setPassword(rs.getString("password_hash"));
+        user.setFirstName(rs.getString("first_name"));
+        user.setLastName(rs.getString("last_name"));
+        user.setPhoneNumber(rs.getString("phone_number"));
+        user.setEmailAddress(rs.getString("email_address"));
         user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
         user.setActivated(true);
         user.setHasLoggedIn(rs.getBoolean("has_logged_in"));
         return user;
     }
+
+//    private ApprovedUsersDto mapRowToApprovedUsers(SqlRowSet rs){
+//        ApprovedUsersDto approvedUsersDto = new ApprovedUsersDto();
+//        approvedUsersDto.setFirstName(rs.getString("first_name"));
+//        approvedUsersDto.setLastName(rs.getString("last_name"));
+//        approvedUsersDto.setPhoneNumber(rs.getString("phone_number"));
+//        approvedUsersDto.setEmailAddress(rs.getString("email_address"));
+//        return approvedUsersDto;
+//    }
 }

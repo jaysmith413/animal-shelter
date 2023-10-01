@@ -7,6 +7,8 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Application from '../views/Application.vue'
 import FirstLoginView from '../views/FirstLoginView.vue'
+import ApproveVolunteersView from '../views/ApproveVolunteersView.vue'
+import Directory from '../views/Directory.vue'
 
 Vue.use(Router)
 
@@ -64,6 +66,14 @@ const router = new Router({
       }
     }, 
     {
+      path: "/directory",
+      name: "directory",
+      component: Directory,
+      meta: {
+        requiresAuth: true
+      }
+    }, 
+    {
       path: "/changepassword/:id",
       name: "change-password",
       component: FirstLoginView,
@@ -74,8 +84,12 @@ const router = new Router({
     {  
       path: "/applications",
       name: "applications",
+      component: ApproveVolunteersView,
+      meta: {
+        requiresAuth: false
+      }
       
-    }
+    },
 
   ]
 })
