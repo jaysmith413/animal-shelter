@@ -4,7 +4,7 @@ import router from './router';
   <div id="app" >
     <div id="nav" class="navbar sticky">
       <a href="/">
-        <img src="../src/img/Cheers.png" alt="logo" id="logo">
+        <img src="../src/img/cheersPoppins5E8558.png" alt="logo" id="logo">
       </a>
       <!-- USING CHECKBOX HACK -->
       <input type="checkbox" id="checkbox_toggle" />
@@ -14,8 +14,6 @@ import router from './router';
         <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token === ''" class="button">Login</router-link>
         <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class="button">Logout</router-link>
         <router-link v-bind:to="{ name: 'apply'}" v-if="$store.state.token === ''" class="button">Be a Volunteer</router-link>
-        <router-link v-bind:to="{ name: 'directory' }" v-if="$store.state.token != ''" class="button">Volunteer Directory</router-link>
-
       </div>
     </div>
     <router-view/>
@@ -45,6 +43,7 @@ body {
 
 #app{
   margin: 0;
+  background-image: url(img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png);
 }
 
 #nav{
@@ -53,6 +52,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 24px;
+  border-radius: 24px;
 }
 
 #logo {
