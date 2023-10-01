@@ -3,7 +3,7 @@
 <h1>Approve Volunteers</h1>
 <table>
 <tr v-for="application in applications" v-bind:key="application.applicationId">
-<div id="card">
+<div id="card" v-show="application.approved =='pending' || application.approved == 'approved'">
     <td class="application-input-group">First Name: {{application.firstName}}</td>
         <td class="application-input-group">Last Name: {{application.lastName}}</td>
         <td class="application-input-group">Email: {{application.emailAddress}}</td>
@@ -28,7 +28,7 @@
         <td class="application-input-group"> {{application.skills}}</td>
         <td class="application-input-group">Status: {{application.approved}}</td>
         <button class="button" v-on:click.prevent="approveApplication(application.applicationId)">Approve Application</button>
-        <button class="button" v-on:click.prevent="">Deny Application</button>
+        <button class="button" v-on:click.prevent="denyApplication(application.applicationId)">Deny Application</button>
 </div>
 
 </tr>
@@ -69,6 +69,11 @@ data() {
             this.applications[indexNum].approved = 'approved';
         // AuthService.register(this.user)
         },
+
+        denyApplication(id) {
+            let indexNum = this.applications.findIndex((application) => id == application.applicationId);
+            this.applications[indexNum].approved = 'denied';
+        }
 
     }
 };
