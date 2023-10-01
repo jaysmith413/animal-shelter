@@ -16,5 +16,8 @@ public interface UserDao {
 
     User updateUser(boolean isAdmin, int id, User user);
 
+    List<User> getApprovedUsers();
+
+
     boolean create(String username, String password, String role);
 }

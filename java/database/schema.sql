@@ -95,4 +95,8 @@ VALUES ('frizzle', 'bird', 8, 'female', 'no', 'yes', 'https://assets.petco.com/p
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
 VALUES ('king julien', 'lemur', 18, 'male', 'no', 'yes', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ring-tailed_Lemur_Feb09.jpg/640px-Ring-tailed_Lemur_Feb09.jpg', 'loud, loves to sing', 'yes', 'yes');
 
+--Testing Volunteer Directory:
+--INSERT INTO users (username, password_hash, role, first_name, last_name, phone_number, email_address, has_logged_in)
+--VALUES ('newperson', 'password', 'user', 'Bob', 'Smith', '123-456-7890', 'bobsmith@gmail.com', true);
+
 COMMIT TRANSACTION;

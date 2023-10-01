@@ -20,6 +20,7 @@ import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -71,5 +72,9 @@ public class AuthenticationController {
 
     }
 
+    @RequestMapping(path = "/approvedUsers", method = RequestMethod.GET)
+    public List<User> findAll(){
+        return userDao.findAll();
+    }
 }
 
