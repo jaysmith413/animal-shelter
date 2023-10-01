@@ -58,20 +58,7 @@ CREATE TABLE volunteer_information(
 	email_address varchar(50),
 	over_eighteen boolean,
 	approved varchar(20) DEFAULT 'pending',
-	dander boolean,
-	pollen boolean,
-	mold boolean,
-	house_cleaners boolean,
-	other_allergies varchar(1000),
-	animal_care boolean,
-	grooming boolean,
-	cleaning_kennels boolean,
-	walking_dogs boolean,
-	cat_whisperer boolean,
-	customer_service boolean,
-	lift_over_thirty_pounds boolean,
-	laundry boolean,
-	stocking_supplies boolean,
+	allergies varchar(1000),
 	skills varchar (1000),
 	
 	CONSTRAINT FK_volunteer_user_id FOREIGN KEY (volunteer_user_id) REFERENCES users (user_id)
@@ -84,7 +71,7 @@ INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_specia
 VALUES ('clifford', 'dog', 9, 'female', 'no', 'yes', 'https://m.media-amazon.com/images/I/81F0PqLk8yL._UF1000,1000_QL80_.jpg', 'larger than life, red', 'yes', 'yes');
 
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
-VALUES ('doggy', 'dog', 16, 'male', 'yes - diabetes', 'no', 'https://www.thesprucepets.com/thmb/HKCGLfgi4t2x34XDNLZ8_iK-HAk=/6000x0/filters:no_upscale():strip_icc()/rules-for-walking-your-dog-1117437-06-c93d684a3f3149958c316fb2dc6c7f57.jpg', 'loves being active and going on walks', 'no', 'no');
+VALUES ('doggy', 'dog', 16, 'male', 'yes - diabetes', 'no', 'https://www.thesprucepets.com/thmb/HKCGLfgi4t2x34XDNLZ8_iK-HAk=/6000x0/filters:no_upscale():strip_icc()/rules-for-walking-your-dog-1117437-06-c93d684a3f3149958c316fb2dc6c7f57.jpg', 'loves going on walks', 'no', 'no');
 
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
 VALUES ('fluffy', 'cat', 8, 'female', 'yes- blind', 'no', 'https://media.istockphoto.com/id/499170514/photo/cat-going-blind-with-cataracts.jpg?s=612x612&w=0&k=20&c=BaGypwr4cb38QOJktK2V0RlzU2i082AWma7eB2rxbO4=', 'hides often', 'no', 'yes');
@@ -93,6 +80,6 @@ INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_specia
 VALUES ('frizzle', 'bird', 8, 'female', 'no', 'yes', 'https://assets.petco.com/petco/image/upload/f_auto,q_auto/Bird%20600x400', 'loud, loves to bite', 'yes', 'no');
 
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
-VALUES ('king julien', 'lemur', 18, 'male', 'no', 'yes', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ring-tailed_Lemur_Feb09.jpg/640px-Ring-tailed_Lemur_Feb09.jpg', 'loud, loves to sing', 'yes', 'yes');
+VALUES ('king julien', 'lemur', 18, 'male', 'no', 'yes', 'https://www.akronzoo.org/sites/default/files/styles/uncropped_xl/public/2022-05/Ring-tailed-lemur-main.png?itok=T7g7bQt6', 'loud, loves to sing', 'yes', 'yes');
 
 COMMIT TRANSACTION;
