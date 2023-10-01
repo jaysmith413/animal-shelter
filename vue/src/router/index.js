@@ -8,6 +8,7 @@ import store from '../store/index'
 import Application from '../views/Application.vue'
 import FirstLoginView from '../views/FirstLoginView.vue'
 import ApproveVolunteersView from '../views/ApproveVolunteersView.vue'
+import Directory from '../views/Directory.vue'
 
 Vue.use(Router)
 
@@ -62,6 +63,14 @@ const router = new Router({
       component: Application,
       meta: {
         requiresAuth: false
+      }
+    }, 
+    {
+      path: "/directory",
+      name: "directory",
+      component: Directory,
+      meta: {
+        requiresAuth: true
       }
     }, 
     {
