@@ -69,6 +69,7 @@ h1{
   font-size: 50px;
   color: #5E8558;
   margin: 0; 
+  margin-top: 10px;
 }
 
 table{
@@ -100,7 +101,7 @@ img{
   flex-direction: column;
   border-radius: 25px;
   background-color: #ffffff;
-  text-align: center;
+  text-align: left;
   table-layout: fixed;
   word-wrap: break-word;
   height: auto;
@@ -117,6 +118,7 @@ td{
   font-weight: bold;
   color: #5E8558;
   font-family: "Poppins", sans-serif;
+  text-decoration: underline;
 }
 
 
