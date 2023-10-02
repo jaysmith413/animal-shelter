@@ -45,6 +45,7 @@ body {
 
 #app{
   margin: 0;
+  background-image: url(img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png);
 }
 
 #nav{

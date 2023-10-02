@@ -1,8 +1,8 @@
 <template>
 <div class="application-container">
-  <div class="image-container">
+  <!-- <div class="image-container">
     <img src="../img/green-cartoon-animal-header.png" alt="Purple Cartoon Animals Header" class="image-container">
-  </div>
+  </div> -->
   <div class="container" style="margin-bottom: 64px;">
    <div class="text">
       Volunteer Application
@@ -229,7 +229,7 @@ body{
   font-family: 'Poppins', sans-serif;
 }
 
-.image-container {
+/* .image-container {
   display: inline-block;
   position: relative;
   line-height: 0;
@@ -250,7 +250,7 @@ body{
   -webkit-filter:    grayscale(100%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%) sepia(0%);
           filter:    grayscale(100%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%) sepia(0%);
   mix-blend-mode: none;
-}
+} */
 
 .application-container {
   display: flex;
@@ -259,6 +259,7 @@ body{
   justify-content: center;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
+  background-image: url(../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png);
 }
 
 .image-container {
@@ -282,7 +283,7 @@ img {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   margin: 0 auto;
-  margin-top: -400px; /* Adjust this value to control the vertical position of the form */
+  margin-top: 60px; /* Adjust this value to control the vertical position of the form */
   z-index: 1;
 }
 
