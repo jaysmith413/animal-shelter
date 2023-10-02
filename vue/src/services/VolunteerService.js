@@ -10,4 +10,9 @@ export default {
         return axios.get("/applications");
     },
 
+    updateApplication(application) {
+        console.log(this.application.applicationId)
+        return axios.put(`/updateapplication/${application.applicationId}`, application)
+    }
+
 }

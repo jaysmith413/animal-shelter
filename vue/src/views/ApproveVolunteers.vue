@@ -6,11 +6,13 @@
             <div id="card">
                 <td class="application-input-group">{{application.firstName}}</td>
                     <td>Age: {{application.lastName}}</td>
+            </div>
                     
         </tr>
     <!-- <ApproveVolunteers/> -->
 
 </table>
+</div>
 <script>
 
 import VolunteerService from '../services/VolunteerService.js';
