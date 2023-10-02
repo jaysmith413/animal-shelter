@@ -21,4 +21,15 @@ public class PetController
     {
         return dao.getAllPets();
     }
+
+    @RequestMapping(path = "/pets", method = RequestMethod.POST)
+    public Pet addPet(@RequestBody Pet pet){
+        //dao
+        return dao.addPet(pet);
+    }
+
+    @RequestMapping(path="/pets/{id}", method = RequestMethod.PUT)
+    public Pet updatePet(@PathVariable int id, @RequestBody Pet pet){
+        return dao.updatePet(id, pet);
+    }
 }
