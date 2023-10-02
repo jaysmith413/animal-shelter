@@ -30,12 +30,14 @@
 </div>
 </div>
 
-
 </template>
+
 
 <script>
 
+
 import ApprovedUsersService from '../services/ApprovedUsersService.js';
+
 
 export default {
   name: "directory",
@@ -45,53 +47,38 @@ return {
         };
     },
 
+
 created() {
   ApprovedUsersService.getApprovedUsers().then(
       (resp) => {
           this.users = resp.data;
       }
   );
-
-
         },
     };
 
+
 </script>
+
 
 <style scoped>
 
-.directory-container{
-    position: relative;
-    overflow: hidden;
+
+table.directory{
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.form-input-group {
-  margin-bottom: 1rem;
+table.directory th, table.directory td{
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
 }
 
-label {
-  margin-right: 0.5rem;
-}
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
-*{
-  margin: 0;
-  padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
 
-body{
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 10px;
-  font-family: 'Poppins', sans-serif;
-}
 
 .image-container {
   display: inline-block;
@@ -116,15 +103,6 @@ body{
   mix-blend-mode: none;
 }
 
-.application-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
-}
-
 .image-container {
   width: 100%;
   max-height: 600px;
@@ -132,11 +110,13 @@ body{
   position: relative;
 }
 
+
 img {
   width: 100%;
   height: 500px;
   object-fit: cover;
 }
+
 
 .overlay {
   position: absolute;
@@ -147,12 +127,31 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1; 
-  
-} 
+  z-index: 1;
+ 
+}
 
+
+/* Long container: */
+/* .container {
+
+
+  max-width: 60%;
+  width: 60%;
+  height: 1000px;
+  background-color: #FFFFFF;
+  padding: 64px 40px 32px 40px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-top: 500px;
+  z-index: 1;
+} */
+
+
+/* Small container: */
 .container {
-      position: absolute;
+
 
   max-width: 60%;
   width: 60%;
@@ -161,44 +160,22 @@ img {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   margin: 0 auto;
-  margin-top: 400px; 
-  z-index: 1; 
-}
-
-.table-container{
-    max-width: 60px;
-    width: 60px;
-    background-color: #FFFFFF;
-    padding: 64px 40px 32px 40px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    margin: 0 auto;
-    margin-top: -150px; /* Adjust this value to control the vertical position of the table */
-    z-index: 1;
+  margin-top: -275px;
+  z-index: 1;
 }
 
 .text{
   text-align: center;
-  font-size: 48px;
+  font-size: 24px;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
-  color: #8E37D7;
-  margin-left: 24px;
-}
-
-.field {
-  margin-left: 20px;
-}
-
-.textarea textarea{
-  resize: none;
-  padding-top: 10px;
-}
-
-.textarea label{
-  width: 100%;
-  bottom: 40px;
-  background: #fff;
+  color: #5E8558;
+  padding-top: -50px;
+  margin-top: -35px;
+  margin-bottom: 30px;
+  line-height: 40px;
+  margin-left: 8px;
+  /* outline: none; */
 }
 
 @media (max-width: 700px) {
@@ -215,41 +192,43 @@ img {
     line-height: 40px;
     margin-left: 0;
   }
-  
 
   table.directory {
-      text-align: center;
-      border-style: 1px solid black;
-      border-color: black;
-      text-align: center;
-      border-collapse: collapse;
-      outline: black;
-      width: 100%;
-      border: 1px solid black;
-      border-width: 20px 20px 20px 20px;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    border-style: solid;
   }
-
-  table.directory th, table.directory td{
-      border: 1px solid black;
-      padding: 8px;
-      text-align: center;
-  }
-
-  table.directory tr{
-      border-bottom: 1px solid black;
-  }
-
-  tr.border-bottom{
-      border-bottom: 1px solid black;
-      padding: 1px;
-      text-align: center;
-      outline: black;
-      outline-style: solid;
-  }
-
-  
+ 
+thead{
+    border: 1px solid black;
+    border-collapse: separate;
+    padding: 8px;
+    text-align: center;
 }
 
 
+tbody{
+    border: 1px solid black;
+    border-collapse: separate;
+    padding: 8px;
+    text-align: center;
+}
+
+
+table.directory th,
+table.directory td {
+  outline-color: black;
+  outline: solid;
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+}
+
 </style>
+
+
+
+
 
