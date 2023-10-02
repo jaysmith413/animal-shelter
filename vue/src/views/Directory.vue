@@ -19,10 +19,10 @@
        </thead>
        <tbody>
         <tr v-for="user in users" :key="user.id">
-              <td>{{ user.first_name }}</td>
-              <td>{{ user.last_name }}</td>
-              <td>{{ user.phone_number }}</td>
-              <td>{{ user.email_address }}</td>
+              <td>{{ user.firstName }}</td>
+              <td>{{ user.lastName }}</td>
+              <td>{{ user.phoneNumber }}</td>
+              <td>{{ user.emailAddress }}</td>
         </tr>
        </tbody>
     </table>
@@ -48,7 +48,7 @@ return {
 created() {
   ApprovedUsersService.getApprovedUsers().then(
       (resp) => {
-          this.approvedUsers = resp.data;
+          this.users = resp.data;
       }
   );
 
