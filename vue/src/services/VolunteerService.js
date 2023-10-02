@@ -11,7 +11,7 @@ export default {
     },
 
     updateApplication(application) {
-        console.log(this.application.applicationId)
+        console.log(typeof application.phoneNumber)
         return axios.put(`/updateapplication/${application.applicationId}`, application)
     }
 

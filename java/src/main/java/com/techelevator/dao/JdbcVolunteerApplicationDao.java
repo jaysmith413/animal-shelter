@@ -102,10 +102,11 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
     public VolunteerApplication updateVolunteerApplication(int id, VolunteerApplication volunteerApplication)
     {
         VolunteerApplication updateVolunteerApplication = null;
+        System.out.println(volunteerApplication);
 
         String sql ="UPDATE volunteer_information " +
                     "SET first_name = ?, last_name = ?, phone_number = ?, email_address = ?, " +
-                    "over_eighteen = ?, approved = ?, other_allergies = ?, skills = ?" +
+                    "over_eighteen = ?, approved = ?, allergies = ?, skills = ? " +
                     "WHERE application_id = ?;";
 
         try {

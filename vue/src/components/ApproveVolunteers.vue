@@ -66,10 +66,14 @@ data() {
     },
     methods: {
         approveApplication(id) {
+            console.log(this.applications)
             let indexNum = this.applications.findIndex((application) => id == application.applicationId);
+            console.log(this.applications[indexNum].applicationId)
             this.applications[indexNum].approved = 'approved';
             this.user.username = this.applications[indexNum].emailAddress
-            // VolunteerService.updateApplication(this.application)
+            this.applications[indexNum].phoneNumber = String(this.applications[indexNum].phoneNumber)
+            console.log(typeof this.applications[indexNum].phoneNumber)
+            VolunteerService.updateApplication(this.applications[indexNum])
         AuthService.register(this.user)
         },
 
