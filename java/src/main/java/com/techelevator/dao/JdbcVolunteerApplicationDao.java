@@ -87,7 +87,7 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
             if (results.next()) {
-                volunteerApplication = mapRowToVolunteerApplication(results);
+                volunteerApplication = mapRowToVolunteerApplicationWithoutId(results);
             }
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
@@ -112,7 +112,7 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
             int rowsAffected = jdbcTemplate.update(sql, int.class, volunteerApplication.getFirstName(),
                     volunteerApplication.getLastName(), volunteerApplication.getPhoneNumber(),
                     volunteerApplication.getEmailAddress(), volunteerApplication.isOverEighteen(),
-                    volunteerApplication.getApproved(), volunteerApplication.getAllergies(), volunteerApplication.getSkills());
+                    volunteerApplication.getApproved(), volunteerApplication.getAllergies(), volunteerApplication.getSkills(), id);
 
             if (rowsAffected == 0)
             {
@@ -135,6 +135,35 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
     }
 
     private VolunteerApplication mapRowToVolunteerApplication(SqlRowSet results)
+    {
+        VolunteerApplication volunteerApplication = new VolunteerApplication();
+
+        volunteerApplication.setApplicationId(results.getInt("application_id"));
+        volunteerApplication.setFirstName(results.getString("first_name"));
+        volunteerApplication.setLastName(results.getString("last_name"));
+        volunteerApplication.setPhoneNumber(results.getString("phone_number"));
+        volunteerApplication.setEmailAddress(results.getString("email_address"));
+        volunteerApplication.setOverEighteen(results.getBoolean("over_eighteen"));
+        volunteerApplication.setDander(results.getBoolean("dander"));
+        volunteerApplication.setPollen(results.getBoolean("pollen"));
+        volunteerApplication.setMold(results.getBoolean("mold"));
+        volunteerApplication.setHouseCleaners(results.getBoolean("house_cleaners"));
+        volunteerApplication.setAllergies(results.getString("other_allergies"));
+        volunteerApplication.setAnimalCare(results.getBoolean("animal_care"));
+        volunteerApplication.setGrooming(results.getBoolean("grooming"));
+        volunteerApplication.setCatWhisperer(results.getBoolean("cat_whisperer"));
+        volunteerApplication.setCleaningKennels(results.getBoolean("cleaning_kennels"));
+        volunteerApplication.setCustomerService(results.getBoolean("customer_service"));
+        volunteerApplication.setLaundry(results.getBoolean("laundry"));
+        volunteerApplication.setLiftOverThirtyPounds(results.getBoolean("lift_over_thirty_pounds"));
+        volunteerApplication.setStockingSupplies(results.getBoolean("stocking_supplies"));
+        volunteerApplication.setWalkingDogs(results.getBoolean("walking_dogs"));
+        volunteerApplication.setSkills(results.getString("skills"));
+
+        return volunteerApplication;
+    }
+
+    private VolunteerApplication mapRowToVolunteerApplicationWithoutId(SqlRowSet results)
     {
         VolunteerApplication volunteerApplication = new VolunteerApplication();
 

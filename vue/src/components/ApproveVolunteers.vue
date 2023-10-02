@@ -43,15 +43,16 @@
 
 <script>
 import VolunteerService from '../services/VolunteerService';
-// import AuthService from '../services/AuthService';
+import AuthService from '../services/AuthService';
 
 export default {
 data() {
     return {
         applications: [],
         user: {
-        username: "user",
+        username: '',
         password: 'password',
+        confirmPassword: 'password',
         role: 'user',
       },
         }
@@ -67,7 +68,9 @@ data() {
         approveApplication(id) {
             let indexNum = this.applications.findIndex((application) => id == application.applicationId);
             this.applications[indexNum].approved = 'approved';
-        // AuthService.register(this.user)
+            this.user.username = this.applications[indexNum].emailAddress
+            // VolunteerService.updateApplication(this.application)
+        AuthService.register(this.user)
         },
 
         denyApplication(id) {
