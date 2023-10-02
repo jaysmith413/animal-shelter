@@ -1,206 +1,157 @@
 <template>
 <div class="application-container">
   <div class="image-container">
-    <img src="../img/cartoon-background.jpg" alt="Cat and Dog" class="image-container">
+    <img src="../img/green-cartoon-animal-header.png" alt="Purple Cartoon Animals Header" class="image-container">
   </div>
   <div class="container" style="margin-bottom: 64px;">
    <div class="text">
       Volunteer Application
    </div>
+   <!-- Personal Information Block -->
    <form v-on:submit.prevent="submitForm">
       <div class="form-row">
          <div class="input-data">
-            <input  type="text" required id="FirstName" v-model="application.firstName">
+            <input type="text" required id="FirstName" v-model="application.firstName">
             <div class="underline"></div>
-            <label for="" style="margin-left: 16px; opacity: 70%;">First Name</label>
+            <label for="" style="opacity: 70%;">First Name</label>
          </div>
       </div>
       <div class="form-row">
          <div class="input-data">
             <input type="text" required id="lastName" v-model="application.lastName">
             <div class="underline"></div>
-            <label for="" style="margin-left: 16px; opacity: 70%;">Last Name</label>
+            <label for="" style="opacity: 70%;">Last Name</label>
          </div>
       </div>
       <div class="form-row">
          <div class="input-data">
             <input type="text" required id="emailAddress" v-model="application.emailAddress">
             <div class="underline"></div>
-            <label for="" style="margin-left: 16px; opacity: 70%;">Email Address</label>
+            <label for="" style="opacity: 70%;">Email Address</label>
          </div>
       </div>
       <div class="form-row">
          <div class="input-data">
             <input type="text" required id="phone-number" v-model="application.phoneNumber">
             <div class="underline"></div>
-            <label for="" style="margin-left: 16px; opacity: 70%;">Phone Number</label>
+            <label for="" style="opacity: 70%;">Phone Number</label>
          </div>
       </div>
       <div class="form-row" style="padding-top: 48px;">
         <div class='field'>
           <label for="over-eighteen" class="subtitle">Are you over the age of 18?</label>
           <ul class='checkboxes'>
-            <li class='checkbox'>
+            <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.overEighteen }" v-on:click="application.overEighteen = !application.overEighteen">
               <input class='checkbox-input' id='true' name='true' type='radio' value='true' v-model="application.overEighteen">
               <label class='checkbox-label' for='true'>Yes</label>
             </li>
-            <li class='checkbox'>
+            <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.overEighteen }" v-on:click="application.overEighteen = !application.overEighteen">
               <input class='checkbox-input' id='false' name='false' type='radio' value='false' v-model="application.overEighteen">
               <label class='checkbox-label' for='false'>No</label>
             </li>
           </ul>
         </div>
       </div>
+      <!-- Do You Have Allergies Block -->
         <div class="form-row" style="padding-top: 48px;">
          <div class='field'>
             <label class='label' style="font-weight: bold; font-size:16px; font-size: 24px;">Allergies?</label>
               <ul class='checkboxes'>
-                <li class='checkbox'>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.dander }" v-on:click="application.dander = !application.dander">
                   <input class='checkbox-input' id='choice-A' name='choice' type='checkbox' value='A' v-model="application.dander">
                   <label class='checkbox-label' for='choice-A'> Dander</label>
                 </li>
-                <li class='checkbox'>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.pollen }" v-on:click="application.pollen = !application.pollen">
                  <input class='checkbox-input' id='choice-B' name='choice' type='checkbox' value='B' v-model="application.pollen">
                  <label class='checkbox-label' for='choice-B'> Pollen</label>
                 </li>
-                <li class='checkbox'>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.mold }" v-on:click="application.mold = !application.mold">
                   <input class='checkbox-input' id='choice-C' name='choice' type='checkbox' value='C' v-model="application.mold">
                   <label class='checkbox-label' for='choice-C'> Mold</label>
                 </li>
-                <li class='checkbox'>
-                  <input class='checkbox-input' id='choice-D' name='choice' type='checkbox' value='D' v-model="application.houseCleaners">
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.householdCleaners }" v-on:click="application.householdCleaners = !application.householdCleaners">
+                  <input class='checkbox-input' id='choice-D' name='choice' type='checkbox' value='D' v-model="application.householdCleaners">
                   <label class='checkbox-label' for='choice-D'> House Cleaners</label>
-                </li>
-                <li class='checkbox'>
-                  <input class='checkbox-input' id='choice-E' name='choice' type='checkbox' value='E' >
-                  <label class='checkbox-label' for='choice-E'> Other</label>
                 </li>
               </ul>
           </div>
         </div>
-        <div class="form-row">
-          <div class="input-data textarea">
-            <input type="text"  required v-model="application.allergies">
+        <div class="form-row other-padding">
+          <div class="input-data">
+            <input type="text" v-model="application.allergies">
             <br />
             <div class="underline"></div>
-            <label for="">If you selected other, please list them here.</label>
+            <label for="" style="opacity: 70%;">If your have any allergies that aren't listed, please list them below.</label>
             <br />
           </div>
         </div>
-
-        <div class="form-row" style="padding-top: 48px;">   
+        <!-- What Skills Do You Have Block -->
+        <div class="form-row">   
           <div class='field'>
             <label class='label' style="font-weight: bold;font-size: 24px;">Skills</label>
               <ul class='checkboxes'>
-                <li class='checkbox'>
-                <input class='checkbox-input' id='choice-0' name='choice' type='checkbox' value='0' v-model="application.animalCare">
-                <label class='checkbox-label' for='choice-0'> Animal Care</label>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.animalCare }" v-on:click="application.animalCare = !application.animalCare">
+                  <input class='checkbox-input' id='choice-0' name='choice' type='checkbox' value='0' v-model="application.animalCare">
+                  <label class='checkbox-label' for='choice-0'> Animal Care</label>
                 </li>
-                <li class='checkbox'>
-                <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='1' v-model="application.grooming">
-                <label class='checkbox-label' for='choice-1'> Grooming</label>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.grooming }" v-on:click="application.grooming = !application.grooming">
+                  <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='1' v-model="application.grooming">
+                  <label class='checkbox-label' for='choice-1'> Grooming</label>
                 </li>
-                <li class='checkbox'>
-                <input class='checkbox-input' id='choice-2' name='choice'   type='checkbox' value='2' v-model="application.cleaningKennels">
-                <label class='checkbox-label' for='choice-2'> Cleaning Kennels</label>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.cleaningKennels }" v-on:click="application.cleaningKennels = !application.cleaningKennels">
+                  <input class='checkbox-input' id='choice-2' name='choice'   type='checkbox' value='2' v-model="application.cleaningKennels">
+                  <label class='checkbox-label' for='choice-2'> Cleaning Kennels</label>
                 </li>
-                <li class='checkbox'>
-                <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='3' v-model="application.walkingDogs">
-                <label class='checkbox-label' for='choice-3'> Walking Dogs</label>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.walkingDogs }" v-on:click="application.walkingDogs = !application.walkingDogs">
+                  <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='3' v-model="application.walkingDogs">
+                  <label class='checkbox-label' for='choice-3'> Walking Dogs</label>
                 </li>
-                <li class='checkbox'>
-                <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='4' v-model="application.catWhisperer">
-                <label class='checkbox-label' for='choice-4'> Cat Whisperer</label>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.catWhisperer }" v-on:click="application.catWhisperer = !application.catWhisperer">
+                  <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='4' v-model="application.catWhisperer">
+                  <label class='checkbox-label' for='choice-4'> Cat Whisperer</label>
                 </li>
-                <li class='checkbox'>
-                <input class='checkbox-input' id='choice-5' name='choice' type='checkbox' value='5' v-model="application.customerService">
-                <label class='checkbox-label' for='choice-5'> Customer Service </label>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.customerService }" v-on:click="application.customerService = !application.customerService">
+                  <input class='checkbox-input' id='choice-5' name='choice' type='checkbox' value='5' v-model="application.customerService">
+                  <label class='checkbox-label' for='choice-5'> Customer Service </label>
                 </li>
-                <li class='checkbox'>
-                <input class='checkbox-input' id='choice-6' name='choice' type='checkbox' value='6' v-model="application.liftOverThirtyPounds">
-                <label class='checkbox-label' for='choice-6'> Can lift over 30lbs</label>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.liftOverThirtyPounds }" v-on:click="application.liftOverThirtyPounds = !application.liftOverThirtyPounds">
+                  <input class='checkbox-input' id='choice-6' name='choice' type='checkbox' value='6' v-model="application.liftOverThirtyPounds">
+                  <label class='checkbox-label' for='choice-6'> Can lift over 30lbs</label>
                 </li>
-                <li class='checkbox'>
-                <input class='checkbox-input' id='choice-7' name='choice' type='checkbox' value='7' v-model="application.laundry">
-                <label class='checkbox-label' for='choice-7'> Laundry</label>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.laundry }" v-on:click="application.laundry = !application.laundry">
+                  <input class='checkbox-input' id='choice-7' name='choice' type='checkbox' value='7' v-model="application.laundry">
+                  <label class='checkbox-label' for='choice-7'> Laundry</label>
                 </li>
-                <li class='checkbox'>
-                <input class='checkbox-input' id='choice-8' name='choice' type='checkbox' value='8' v-model="application.stockingSupplies">
-                <label class='checkbox-label' for='choice-8'> Stocking Supplies</label>
-                </li>
-                <li class='checkbox'>
-                <input class='checkbox-input' id='choice-9' name='choice' type='checkbox' value='9' >
-                <label class='checkbox-label' for='choice-9'> Other</label>
+                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.stockingSupplies }" v-on:click="application.stockingSupplies = !application.stockingSupplies">
+                  <input class='checkbox-input' id='choice-8' name='choice' type='checkbox' value='8' v-model="application.stockingSupplies">
+                  <label class='checkbox-label' for='choice-8'> Stocking Supplies</label>
                 </li>
               </ul>
             </div>
           </div>
-            
-          <div class="form-row">
-            <div class="input-data textarea">
-              <textarea rows="8" cols="80" required v-model="application.skills"></textarea>
+          <div class="form-row other-padding">
+            <div class="input-data">
+              <input type="text" v-model="application.skills">
               <br />
               <div class="underline"></div>
-              <label for="">If you selected other, please list them here.</label>
+              <label for="" style="opacity: 70%;">If a relevant skill you have isn't listed, please list them below.</label>
               <br />
             </div>
           </div>
-            
-      <div class="form-row">
-         <div class="input-data textarea">
-            <div class="form-row submit-btn">
-               <div class="input-data">
-                  <div class="inner"></div>
-                  <input type="submit" value="submit">
-               </div>
+          <!-- Submit Button Block -->
+          <div class="form-row">
+            <div class="input-data textarea">
+                <div class="form-row submit-btn">
+                  <div class="input-data">
+                      <div class="inner"></div>
+                      <input type="submit" value="submit">
+                  </div>
+                </div>
             </div>
-        </div>
         </div>
    </form>
   </div>
-
-<!-- <form v-on:submit.prevent="submitForm">
-    <h1>Please fill out application</h1>
-    <div class="form-input-group" v-on:click="changeOverEighteen">
-        <label for="over-eighteen">Are you over the age of 18?</label>
-        <input type="checkbox" id="over-eighteen" v-model="application.overEighteen"/>
-    </div>
-
-    <div class="form-input-group">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="FirstName" v-model="application.firstName"/>
-    </div>
-
-    <div class="form-input-group">
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" v-model="application.lastName"/>
-    </div>
-
-    <div class="form-input-group">
-        <label for="skills">What kind of tasks would you prefer?</label>
-        <input type="text" id="skills" v-model="application.skills"/>
-    </div>
-
-    <div class="form-input-group">
-        <label for="emailAddress">Email Address:</label>
-        <input type="text" id="emailAddress" v-model="application.emailAddress"/>
-    </div>
-
-    <div class="form-input-group">
-        <label for="phone-number">Phone Number:</label>
-        <input type="text" id="phone-number" v-model="application.phoneNumber"/>
-    </div>
-
-    <div class="form-input-group">
-        <label for="allergies">Any allergies? If so, what are they:</label>
-        <input type="text" id="allergies" v-model="application.allergies"/>
-    </div>
-
-    <button type="submit">Confirm Application</button>
-</form> -->
 </div>
-
-
 </template>
 
 <script>
@@ -234,36 +185,30 @@ return {
         }
     }
 },
+computed: {
+  isCheckboxSelected() {
+    return (field) => {
+      return this.application[field];
+    };
+  },
+},
 methods: {
     submitForm() {
       VolunteerService.processApplication(this.application).then(
           response => {if(response.status == 200) {
               window.alert('Application added')
-              // push them back to another component
               this.$router.push("/")
               }
-           }
-    )
-    },
+           })
+        },
     changeOverEighteen() {
     this.application.overEighteen = !this.application.overEighteen   
     }
   }
 }
-
-
-
 </script>
 
 <style scoped>
-.form-input-group {
-  margin-bottom: 1rem;
-}
-
-label {
-  margin-right: 0.5rem;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
 *{
@@ -284,9 +229,6 @@ body{
   font-family: 'Poppins', sans-serif;
 }
 
-
-
-/* The .image-container class needs to be applied to a div wrapped around the image you want to apply this filter to */
 .image-container {
   display: inline-block;
   position: relative;
@@ -309,11 +251,6 @@ body{
           filter:    grayscale(100%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%) sepia(0%);
   mix-blend-mode: none;
 }
-
-
-
-
-
 
 .application-container {
   display: flex;
@@ -341,12 +278,12 @@ img {
   max-width: 60%;
   width: 60%;
   background-color: #FFFFFF;
-  padding: 64px 40px 32px 40px;
+  padding: 64px 40px 40px 40px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   margin: 0 auto;
   margin-top: -400px; /* Adjust this value to control the vertical position of the form */
-  z-index: 1; /* Ensure the form is above the image */
+  z-index: 1;
 }
 
 .text{
@@ -354,19 +291,24 @@ img {
   font-size: 48px;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
-  color: #8E37D7;
+  color: #5E8558;
   margin-left: 24px;
 }
 
-form{
+form {
   padding: 8px 0 0 0;
 }
-.form-row{
+
+.form-row {
   display: flex;
   margin: 32px 0;
 }
 
-#over-eighteen{
+.other-padding {
+padding-top: 8px;
+}
+
+#over-eighteen {
   width: 15px;
   height: 15px;
   display: inline-block;
@@ -383,7 +325,7 @@ form{
 .checkbox {
   display: inline-block;
   align-items: center;
-  margin: 16px 10px 0 0; /* Add margin for spacing */
+  margin: 16px 10px 0 0;
   background-color: #f1f1f1;
   padding: 16px;
   border-radius: 8px;
@@ -391,20 +333,25 @@ form{
 }
 
 .checkbox:hover {
-  background-color: #775576;
-  color: #FFFFFF;
+  background-color: #CEDED0;
+}
 
+.selected-checkbox {
+  background-color: #CEDED0;
 }
 
 .checkbox-label {
-  flex: 1; /* Expand to fill available space */
-  margin-left: 8px; /* Add some spacing between the checkbox and the label */
+  flex: 1;
+  margin-left: 8px;
 }
 
-/* Adjust the width if needed */
 .checkbox-input {
   width: auto;
   margin-bottom: 0;
+}
+
+input[type="checkbox"]  {
+   display: none;
 }
 
 form .form-row .input-data{
@@ -453,7 +400,7 @@ form .form-row .textarea{
   height: 2px;
   width: 100%;
 }
-.input-data .underline:before{
+.input-data .underline:before {
   position: absolute;
   content: "";
   height: 2px;
@@ -469,25 +416,29 @@ form .form-row .textarea{
 .textarea textarea:valid ~ .underline:before{
   transform: scale(1);
 }
-.submit-btn .input-data{
+
+.submit-btn .input-data {
   overflow: hidden;
   height: 56px!important;
   width: 25%!important;
   border-radius: 8px;
+  margin: 0!important;
 }
-.submit-btn .input-data .inner{
+
+.submit-btn .input-data .inner {
   height: 100%;
   width: 300%;
   position: absolute;
-  left: -100%;
-  background-color: #8E37D7;
+  background-color: #5E8558;
   transition: all 0.4s;
 }
-.submit-btn .input-data:hover .inner{
+
+.submit-btn .input-data:hover .inner {
   left: 0;
-  background: #0070BB;
+  background: #7EA578;
 }
-.submit-btn .input-data input{
+
+.submit-btn .input-data input {
   background: none;
   border: none;
   color: #fff;
@@ -500,37 +451,46 @@ form .form-row .textarea{
   z-index: 2;
 }
 
-
-
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
     .container {
     max-width: 85%;
     width: 85%;
-    padding: 48px 16px 32px 16px;
+    padding: 16px 16px 0 16px;
     margin-top: -450px;
     z-index: 1;
   }
 
   .text{
-    font-size: 30px;
-    text-align: center;
+    font-size: 24px;
+    text-align: left;
     line-height: 40px;
-    margin-left: 0;
+    margin-left: 8px;
   }
-  form{
+
+  .checkbox {
+    width: 95%;
+  }
+
+  form {
     padding: 10px 0 0 0;
   }
+
   .form-row{
     display: block;
   }
+
   form .form-row .input-data{
-    margin: 35px 0!important;
+    margin: 0 auto;
+    width: 88%;
   }
+
+  .other-padding {
+    padding-top: 24px;
+  }
+
   .submit-btn .input-data{
     width: 100%!important;
   }
 }
-
-
 </style>
 

@@ -48,8 +48,9 @@ export default {
 
 .home{
   background-image: url(../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png);
-  margin: 0 auto;
-  padding: 0 auto;
+  background-repeat: repeat;
+  margin: 0;
+  padding: 0;
 }
 
 .page-title{
@@ -67,9 +68,7 @@ h1{
   font-family: 'Poppins', sans-serif;
   font-size: 50px;
   color: #5E8558;
-  margin: 0;
-  margin-top: 10px;
-  
+  margin: 0; 
 }
 
 table{

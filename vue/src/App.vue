@@ -6,15 +6,16 @@ import router from './router';
       <a href="/">
         <img src="../src/img/cheersPoppins5E8558.png" alt="logo" id="logo">
       </a>
-      <!-- USING CHECKBOX HACK -->
+      <!-- Hamburger Menu -->
       <input type="checkbox" id="checkbox_toggle" />
       <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+      <!-- Navigation -->
       <div class="menu">
         <router-link v-bind:to="{ name: 'home' }" class="button">Home</router-link>
-        <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token === ''" class="button">Login</router-link>
-        <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class="button">Logout</router-link>
         <router-link v-bind:to="{ name: 'apply'}" v-if="$store.state.token === ''" class="button">Be a Volunteer</router-link>
         <router-link v-bind:to="{ name: 'directory' }" v-if="$store.state.token != ''" class="button">Volunteer Directory</router-link>
+        <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token === ''" class="button">Login</router-link>
+        <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class="button">Logout</router-link>
       </div>
     </div>
     <router-view/>
@@ -44,7 +45,6 @@ body {
 
 #app{
   margin: 0;
-  background-image: url(img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png);
 }
 
 #nav{
@@ -53,7 +53,6 @@ body {
   display: flex;
   align-items: center;
   padding: 0 24px;
-  border-radius: 24px;
 }
 
 #logo {
@@ -62,7 +61,7 @@ body {
 }
 
 .button {
-  background: #8E37D7;
+  background: #775576;
   transition: all 0.4s;
   color: #FFFFFF;
   border-radius: 8px;
@@ -73,7 +72,7 @@ body {
 }
 
 .button:hover {
-  background-color: #0070BB;
+  background-color: #B185A7;
 }
 
 .navbar {
@@ -86,38 +85,6 @@ body {
   box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
-/* DROPDOWN MENU */
-.services {
-  position: relative; 
-}
-
-.dropdown {
-  background-color: #FFFFFA;
-  padding: 1em 0;
-  position: absolute; /*WITH RESPECT TO PARENT*/
-  display: none;
-  border-radius: 8px;
-  top: 35px;
-}
-
-.dropdown li + li {
-  margin-top: 10px;
-}
-
-.dropdown li {
-  padding: 0.5em 1em;
-  width: 8em;
-  text-align: center;
-}
-
-.dropdown li:hover {
-  background-color: #feeadc;
-}
-
-.services:hover .dropdown {
-  display: block;
-}
-
 input[type=checkbox] {
   display: none;
 } 
@@ -125,12 +92,17 @@ input[type=checkbox] {
 /* HAMBURGER MENU */
 .hamburger {
   display: none;
-  font-size: 24px;
+  font-size: 32px;
   user-select: none;
 }
 
 /* APPLYING MEDIA QUERIES */
 @media (max-width: 992px) {
+
+  #logo {
+    width: 150px;
+  }
+
  .menu {
     display:none;
     position: absolute;
@@ -138,8 +110,15 @@ input[type=checkbox] {
     right: 0;
     left: 0;
     text-align: center;
-    padding: 16px 0;
-    margin-top: 24px;
+    padding: 16px 0 4px 0;
+    margin-top: 280px;
+  }
+
+  .button {
+    display: block;
+    border-radius: 0;
+    width: 100%;
+    margin: 0 0 8px 0;
   }
 
   .menu li:hover {
@@ -158,22 +137,6 @@ input[type=checkbox] {
   .hamburger {
     display: block;
   }
-
-  .dropdown {
-    left: 50%;
-    top: 30px;
-    transform: translateX(35%);
-  }
-
-  .dropdown li:hover {
-    background-color: #feeadc;
-  }
-
-  .logo {
-    width: 35%;
-  }
-
 }
-/* END NAVBAR STYLING */
 
 </style>
