@@ -6,4 +6,8 @@ export default {
         return axios.get("/pets");
     },
 
-}
+    addPet(pet) {
+        return axios.post("/pets", pet);
+    },
+
+};

@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.sql.Blob;
+
 public class Pet
 {
     //Variables
@@ -11,7 +13,7 @@ public class Pet
     private String specialNeeds;
     private boolean adopted;
     private String personalityTraits;
-    private String image;
+    private Blob petPicture;
     private boolean goodWithKids;
     private boolean goodWithOtherAnimals;
     //End Variables
@@ -41,8 +43,8 @@ public class Pet
     public String getPersonalityTraits() {
         return personalityTraits;
     }
-    public String getImage() {
-        return image;
+    public Blob getPetPicture() {
+        return petPicture;
     }
     public boolean isGoodWithKids() {
         return goodWithKids;
@@ -77,8 +79,8 @@ public class Pet
     public void setPersonalityTraits(String personalityTraits) {
         this.personalityTraits = personalityTraits;
     }
-    public void setImage(String image) {
-        this.image = image;
+    public void setPetPicture(Blob petPicture) {
+        this.petPicture = petPicture;
     }
     public void setGoodWithKids(boolean goodWithKids) {
         this.goodWithKids = goodWithKids;

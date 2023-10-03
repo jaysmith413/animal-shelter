@@ -24,23 +24,24 @@
 
 <script>
 
-import petService from '../services/PetService.js';
+import PetService from '../services/PetService.js';
 
 export default {
   name: "home",
   data(){
     return {
       pets:[]
-    }
+    };
   },
   created(){
-    petService.getAllPets().then(
+    PetService.getAllPets().then(
       (resp) => {
-        this.pets = resp.data;
+        this.users = resp.data;
       }
     );
-  }
+      },
 };
+
 </script>
 
 <style scoped>

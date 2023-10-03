@@ -1,147 +1,168 @@
 <template>
   <div class="addPet-container">
-  <!-- <div class="image-container">
+    <!-- <div class="image-container">
     <img src="../img/green-cartoon-animal-header.png" alt="Purple Cartoon Animals Header" class="image-container">
   </div> -->
-  <div class="container" style="margin-bottom: 64px;">
-   <div class="text">
-      Add Pet
-   </div>
-   <!-- Pet Information Block -->
+    <div class="container" style="margin-bottom: 64px">
+      <div class="text">Add Pet</div>
+      <!-- Pet Information Block -->
 
-   <form v-on:submit.prevent="submitForm">
-      <div class="form-row">
-        <div class="input-data">
-          <input type="text" required id="PetName" v-model="addPet.petName">
-            <div class="underline"></div>
-          <label for="" style="opacity: 70%;">Name</label>
-        </div>
-      </div>
-      
-      <div class="form-row">
-        <div class="input-data">
-          <input type="text" required id="petType" v-model="addPet.petType">
-            <div class="underline"></div>
-              <label for="" style="opacity: 70%;">Type</label>
-            </div>
-          </div>
-      <div class="form-row">
-        <div class="input-data">
-          <input type="text" required id="petAge" v-model="addPet.petAge">
-            <div class="underline"></div>
-              <label for="" style="opacity: 70%;">Age</label>
-            </div>
-          </div>
-          
+      <!-- Name -->
+      <form v-on:submit.prevent="submitForm">
         <div class="form-row">
-        <div class="input-data">
-            <input type="text" required id="petGender" v-model="addPet.petGender">
+          <div class="input-data">
+            <input type="text" required id="PetName" v-model="addPet.petName" />
             <div class="underline"></div>
-            <label for="" style="opacity: 70%;">Gender</label>
-         </div>
-         </div>
-         
-         <div class="form-row">
-         <div class="input-data">
-            <input type="text" required id="petSpecialNeeds" v-model="addPet.petSpecialNeeds">
-            <div class="underline"></div>
-            <label for="" style="opacity: 70%;">Special Needs</label>
-         </div>
-         </div>
-         <div class="form-row" style="padding-top: 48px;">
-        <div class='field'>
-          <label for="adopted" class="subtitle">Adopted?</label>
-          <ul class='checkboxes'>
-            <li class='checkbox' v-bind:class="{ 'selected-checkbox': addPet.adopted }" v-on:click="addPet.adopted = !addPet.adopted">
-              <input class='checkbox-input' id='true' name='true' type='radio' value='true' v-model="addPet.adopted">
-              <label class='checkbox-label' for='true'>Yes</label>
-            </li>
-                     <li class='checkbox' v-bind:class="{ 'selected-checkbox': addPet.adopted }" v-on:click="addPet.adopted = !addPet.adopted">
-              <input class='checkbox-input' id='false' name='false' type='radio' value='false' v-model="addPet.adopted">
-              <label class='checkbox-label' for='false'>No</label>
-            </li>
-            </ul>
+            <label for="" style="opacity: 70%">Name</label>
+          </div>
         </div>
-      </div>
-      <div class="form-row">
-         <div class="input-data">
-            <input type="text" required id="petPicture" v-model="addPet.petPicture">
-            <div class="underline"></div>
-            <label for="" style="opacity: 70%;">Picture</label>
-         </div>
-         </div>
-         <div class="form-row">
-         <div class="input-data">
-            <input type="text" required id="petPersonalityTraits" v-model="addPet.petPersonalityTraits">
-            <div class="underline"></div>
-            <label for="" style="opacity: 70%;">Personality Traits</label>
-         </div>
-         </div>
-         
-<div class="form-row" style="padding-top: 48px;">
-        <div class='field'>
-          <label for="goodWithKids" class="subtitle">Good With Kids?</label>
-          <ul class='checkboxes'>
-            <li class='checkbox' v-bind:class="{ 'selected-checkbox': addPet.goodWithKids }" v-on:click="addPet.goodWithKids = !addPet.goodWithKids">
-              <input class='checkbox-input' id='true' name='true' type='radio' value='true' v-model="addPet.goodWithKids">
-              <label class='checkbox-label' for='true'>Yes</label>
-            </li>
-                     <li class='checkbox' v-bind:class="{ 'selected-checkbox': addPet.goodWithKids }" v-on:click="addPet.goodWithKids = !addPet.goodWithKids">
-              <input class='checkbox-input' id='false' name='false' type='radio' value='false' v-model="addPet.goodWithKids">
-              <label class='checkbox-label' for='false'>No</label>
-            </li>
-            </ul>
-        </div>
-      </div>
-      
-      <div class="form-row" style="padding-top: 48px;">
-        <div class='field'>
-          <label for="goodWithOtherAnimals" class="subtitle">Good With Other Animals?</label>
-          <ul class='checkboxes'>
-            <li class='checkbox' v-bind:class="{ 'selected-checkbox': addPet.goodWithOtherAnimals }" v-on:click="addPet.goodWithOtherAnimals = !addPet.goodWithOtherAnimals">
-              <input class='checkbox-input' id='true' name='true' type='radio' value='true' v-model="addPet.goodWithOtherAnimals">
-              <label class='checkbox-label' for='true'>Yes</label>
-            </li>
-                     <li class='checkbox' v-bind:class="{ 'selected-checkbox': addPet.goodWithOtherAnimals }" v-on:click="addPet.goodWithOtherAnimals = !addPet.goodWithOtherAnimals">
-              <input class='checkbox-input' id='false' name='false' type='radio' value='false' v-model="addPet.goodWithOtherAnimals">
-              <label class='checkbox-label' for='false'>No</label>
-            </li>
-            </ul>
-        </div>
-        </div>
-   
 
+        <!-- Animal Type -->
+        <div class="form-row">
+          <div class="input-data">
+            <input type="text" required id="petType" v-model="addPet.petType" />
+            <div class="underline"></div>
+            <label for="" style="opacity: 70%">Animal Type</label>
+          </div>
+        </div>
 
+        <!-- Age -->
+        <div class="form-row">
+          <div class="input-data">
+            <input type="text" required id="petAge" v-model="addPet.petAge" />
+            <div class="underline"></div>
+            <label for="" style="opacity: 70%">Age</label>
+          </div>
+        </div>
 
-          <!-- Submit Button Block -->
-          <div class="form-row">
-            <div class="input-data textarea">
-                <div class="form-row submit-btn">
-                  <div class="input-data">
-                      <div class="inner"></div>
-                      <input type="submit" value="submit">
-                  </div>
-  </div>
-            </div></div>
-  </form>
-  </div>
+        <!-- Gender -->
+        <div class="form-row">
+          <div class="input-data">
+            <input type="text" required id="petGender" v-model="addPet.petGender" />
+            <div class="underline"></div>
+            <label for="" style="opacity: 70%">Gender</label>
+          </div>
+        </div>
+
+        <!-- Special Needs -->
+        <div class="form-row">
+          <div class="input-data">
+            <input type="text" required id="petSpecialNeeds" v-model="addPet.petSpecialNeeds" />
+            <div class="underline"></div>
+            <label for="" style="opacity: 70%">Special Needs</label>
+          </div>
+        </div>
+
+        <!-- Personality Traits -->
+        <div class="form-row">
+          <div class="input-data">
+            <input type="text" required id="petPersonalityTraits" v-model="addPet.petPersonalityTraits" />
+            <div class="underline"></div>
+            <label for="" style="opacity: 70%">Personality Traits</label>
+          </div>
+        </div>
+
+        <!-- Adoption Status -->
+        <div class="form-row" style="padding-top: 48px">
+          <div class="field">
+            <label for="adopted" class="subtitle">Adopted?</label>
+            <ul class="checkboxes">
+              <li class="checkbox" v-bind:class="{ 'selected-checkbox': addPet.adopted }" v-on:click="addPet.adopted = !addPet.adopted">
+                <input class="checkbox-input" id="adopted-true" name="adopted" type="radio" value="true" v-model="addPet.adopted" />
+                <label class="checkbox-label" for="adopted-true">Yes</label>
+              </li>
+              <li class="checkbox" v-bind:class="{ 'selected-checkbox': addPet.adopted }" v-on:click="addPet.adopted = !addPet.adopted">
+                <input class="checkbox-input" id="adopted-false" name="adopted" type="radio" value="false" v-model="addPet.adopted" />
+                <label class="checkbox-label" for="adopted-false">No</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Good With Kids -->
+        <div class="form-row" style="padding-top: 48px">
+          <div class="field">
+            <label for="goodWithKids" class="subtitle">Good With Kids?</label>
+            <ul class="checkboxes">
+              <li class="checkbox" v-bind:class="{ 'selected-checkbox': addPet.goodWithKids }" v-on:click="addPet.goodWithKids = !addPet.goodWithKids">
+                <input class="checkbox-input" id="goodWithKids-true" name="goodWithKids" type="radio" value="true" v-model="addPet.goodWithKids" />
+                <label class="checkbox-label" for="goodWithKids-true">Yes</label>
+              </li>
+              <li class="checkbox" v-bind:class="{ 'selected-checkbox': addPet.goodWithKids }" v-on:click="addPet.goodWithKids = !addPet.goodWithKids">
+                <input class="checkbox-input" id="goodWithKids-false" name="goodWithKids" type="radio" value="false" v-model="addPet.goodWithKids" />
+                <label class="checkbox-label" for="goodWithKids-false">No</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Good With Other Animals -->
+        <div class="form-row" style="padding-top: 48px">
+          <div class="field">
+            <label for="goodWithOtherAnimals" class="subtitle"
+              >Good With Other Animals?</label>
+            <ul class="checkboxes">
+              <li class="checkbox" v-bind:class="{ 'selected-checkbox': addPet.goodWithOtherAnimals }" v-on:click="addPet.goodWithOtherAnimals = !addPet.goodWithOtherAnimals">
+                <input class="checkbox-input" id="goodWithOtherAnimals-true" name="goodWithOtherAnimals" type="radio" value="true" v-model="addPet.goodWithOtherAnimals" />
+                <label class="checkbox-label" for="goodWithOtherAnimals-true">Yes</label>
+              </li>
+              <li class="checkbox" v-bind:class="{ 'selected-checkbox': addPet.goodWithOtherAnimals }" v-on:click="addPet.goodWithOtherAnimals = !addPet.goodWithOtherAnimals">
+                <input class="checkbox-input" id="goodWithOtherAnimals-false" name="goodWithOtherAnimals" type="radio" value="false" v-model="addPet.goodWithOtherAnimals" />
+                <label class="checkbox-label" for="goodWithOtherAnimals-false">No</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Picture: String-->
+        <!-- <div class="form-row">
+          <div class="input-data">
+            <input type="text" required id="getPetPicture" v-model="addPet.getPetPicture" />
+            <div class="underline"></div>
+            <label for="" style="opacity: 70%">Picture</label>
+          </div>
+        </div> -->
+
+        <!-- Picture: Upload -->
+        <div class="form-row" style="padding-top: 48px">
+          <div class="input-data-picture">
+            <label for="petPicture" class="subtitle">Picture</label>
+            <input type="file" required id="petPicture" ref="fileInput" @change="handleFileChange" />
+            <div class="underline"></div>
+          </div>
+        </div>
+
+        <!-- Submit Button Block -->
+        <div class="form-row">
+          <div class="input-data textarea">
+            <div class="form-row submit-btn">
+              <div class="input-data">
+                <div class="inner"></div>
+                <input type="submit" value="submit">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
-import AddPet from "../services/PetService.js";
+import PetService from "../services/PetService.js";
 
 export default {
   data() {
     return {
       addPet: {
-        petName: "",
-        petType: "",
-        petAge: "",
-        petGender: "",
-        petSpecialNeeds: "",
+        name: "",
+        type: "",
+        age: "",
+        gender: "",
+        specialNeeds: "",
         adopted: "",
-        petPicture: "",
+        image: null,
+        picture: "",
         personalityTraits: "",
         goodWithKids: "",
         goodWithOtherAnimals: "",
@@ -157,12 +178,20 @@ export default {
   },
   methods: {
     submitForm() {
-      AddPet.processAdd(this.addPet).then((response) => {
+      const formData = new FormData();
+      for (const key in this.addPet) {
+        formData.append(key, this.addPet[key]);
+      }
+      PetService.addPet(formData).then((response) => {
         if (response.status == 200) {
           window.alert("Pet added");
           this.$router.push("/");
+          this.$emit("petAdded");
         }
       });
+    },
+    handleFileChange(event) {
+      this.addPet.petPicture = event.target.files[0];
     },
   },
 };
@@ -188,29 +217,6 @@ body {
   padding: 10px;
   font-family: "Poppins", sans-serif;
 }
-
-/* .image-container {
-  display: inline-block;
-  position: relative;
-  line-height: 0;
-  background: #ffffff;
-}
-.image-container::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  mix-blend-mode: multiply;
-  background: #fa00cc;
-  opacity: 0.5;
-}
-.image-container > img {
-  -webkit-filter:    grayscale(100%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%) sepia(0%);
-          filter:    grayscale(100%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%) sepia(0%);
-  mix-blend-mode: none;
-} */
 
 .addPet-container {
   display: flex;
@@ -267,16 +273,6 @@ form {
 
 .other-padding {
   padding-top: 8px;
-}
-
-#over-eighteen {
-  width: 15px;
-  height: 15px;
-  display: inline-block;
-  margin-top: 10px;
-  margin-right: 5px;
-  margin-left: 225px;
-  border: 1px solid #0070bb;
 }
 
 .field {
@@ -412,6 +408,17 @@ form .form-row .textarea {
   cursor: pointer;
   position: relative;
   z-index: 2;
+}
+
+.input-data-picture {
+  margin-top: -30px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.input-data-picture label {
+  margin-bottom: 10px;
 }
 
 @media (max-width: 1000px) {

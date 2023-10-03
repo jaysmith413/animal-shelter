@@ -49,7 +49,7 @@ public class JdbcPetDao implements PetDao
         try
         {
             int createdPetId = template.queryForObject(sql, int.class, pet.getName(), pet.getType(), pet.getAge(),
-                    pet.getGender(), pet.getSpecialNeeds(), pet.isAdopted(), pet.getImage(), pet.getPersonalityTraits(),
+                    pet.getGender(), pet.getSpecialNeeds(), pet.isAdopted(), pet.getPetPicture(), pet.getPersonalityTraits(),
                     pet.isGoodWithKids(), pet.isGoodWithOtherAnimals());
 
             createdPet = getPetById(createdPetId);
@@ -97,7 +97,7 @@ public class JdbcPetDao implements PetDao
         try {
             int rowsAffected = template.update(sql, pet.getName(), pet.getType(),
                     pet.getAge(), pet.getGender(), pet.getSpecialNeeds(), pet.isAdopted(),
-                    pet.getImage(), pet.getPersonalityTraits(), pet.isGoodWithKids(),
+                    pet.getPetPicture(), pet.getPersonalityTraits(), pet.isGoodWithKids(),
                     pet.isGoodWithOtherAnimals(), id);
 
             if (rowsAffected == 0)
@@ -128,7 +128,7 @@ public class JdbcPetDao implements PetDao
         pet.setGoodWithKids(results.getBoolean("good_with_kids"));
         pet.setGoodWithOtherAnimals(results.getBoolean("good_with_other_animals"));
         pet.setId(results.getInt("pet_id"));
-        pet.setImage(results.getString("pet_picture"));
+        pet.setPetPicture(results.getBlob("pet_picture"));
         pet.setName(results.getString("pet_name"));
         pet.setPersonalityTraits(results.getString("personality_traits"));
         pet.setSpecialNeeds(results.getString("pet_special_needs"));
@@ -143,7 +143,7 @@ public class JdbcPetDao implements PetDao
         pet.setGoodWithKids(results.getBoolean("good_with_kids"));
         pet.setGoodWithOtherAnimals(results.getBoolean("good_with_other_animals"));
 
-        pet.setImage(results.getString("pet_picture"));
+        pet.setPetPicture(results.getBlob("pet_picture"));
         pet.setName(results.getString("pet_name"));
         pet.setPersonalityTraits(results.getString("personality_traits"));
         pet.setSpecialNeeds(results.getString("pet_special_needs"));

@@ -37,10 +37,10 @@ CREATE TABLE pet_information (
 	pet_gender varchar(50),
 	pet_special_needs varchar(50),
 	adopted boolean,
-	pet_picture varchar(1000),
+    pet_picture Blob CONSTRAINT,
 	personality_traits varchar(100),
 	good_with_kids boolean,
-	good_with_other_animals boolean
+	good_with_other_animals boolean,
 );
 
 CREATE SEQUENCE seq_volunteer_app_id

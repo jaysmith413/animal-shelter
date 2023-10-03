@@ -1,18 +1,18 @@
 <template>
-<div class="add-container">
+<div>
     <AddPet />
 </div>
 
 </template>
 
 <script>
-import AddPet from '../components/AddPet.vue';
 
+import AddPet from '../components/AddPet.vue';
 export default {
-name: 'add',
+name: 'addPet',
 components: {
     AddPet
-}
+    },
 }
 
 

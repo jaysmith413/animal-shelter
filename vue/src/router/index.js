@@ -76,8 +76,8 @@ const router = new Router({
       }
     }, 
     {
-      path: "/add",
-      name: "add",
+      path: "/addPet",
+      name: "addPet",
       component: AddPet,
       meta: {
         requiresAuth: true
