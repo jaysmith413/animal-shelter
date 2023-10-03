@@ -80,6 +80,11 @@ data() {
         denyApplication(id) {
             let indexNum = this.applications.findIndex((application) => id == application.applicationId);
             this.applications[indexNum].approved = 'denied';
+            if(confirm('Are you sure you want deny this application?')) {
+                VolunteerService.updateApplication(this.applications[indexNum])
+            }
+            
+            
         }
 
     }

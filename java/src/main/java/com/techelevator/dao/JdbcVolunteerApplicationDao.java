@@ -53,7 +53,6 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
         {
             throw new DaoException("Data integrity violation", e);
         }
-
         return createVolunteerApplication;
     }
 
@@ -157,6 +156,7 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
         volunteerApplication.setPhoneNumber(results.getString("phone_number"));
         volunteerApplication.setEmailAddress(results.getString("email_address"));
         volunteerApplication.setOverEighteen(results.getBoolean("over_eighteen"));
+        volunteerApplication.setApproved(results.getString("approved"));
         volunteerApplication.setDander(results.getBoolean("dander"));
         volunteerApplication.setPollen(results.getBoolean("pollen"));
         volunteerApplication.setMold(results.getBoolean("mold"));
