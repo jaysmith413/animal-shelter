@@ -28,6 +28,10 @@ public class PetController
         return dao.getAllPets();
     }
 
+    @RequestMapping(path="/pets/{id}", method = RequestMethod.GET)
+    public Pet getPetById(@PathVariable int id){
+        return dao.getPetById(id);
+    }
 
 
 //    Alternative version?

@@ -16,6 +16,8 @@
         <td>Personality Traits: {{pet.personalityTraits}}</td>
         <td>Good with Kids: {{pet.goodWithKids}}</td>
         <td>Good with Other Animals: {{pet.goodWithOtherAnimals}}</td>
+        <button> 
+          <router-link v-bind:to="{ name: 'updatePet', params: {id: pet.id} }" v-if="$store.state.token != ''" class="button" v-bind:pet="pet">Update Pet</router-link></button>
         </div>
       </tr>
     </table>

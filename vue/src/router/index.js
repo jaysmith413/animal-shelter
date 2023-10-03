@@ -10,6 +10,7 @@ import FirstLoginView from '../views/FirstLoginView.vue'
 import ApproveVolunteersView from '../views/ApproveVolunteersView.vue'
 import Directory from '../views/Directory.vue'
 import AddPet from '../views/AddPet.vue'
+import UpdatePet from '../views/UpdatePet.vue'
 
 
 Vue.use(Router)
@@ -83,6 +84,14 @@ const router = new Router({
         requiresAuth: true
       }
     }, 
+    {
+      path: "/pets/:id",
+      name: "updatePet",
+      component: UpdatePet,
+      meta: {
+        requiresAuth: true
+      }
+    },
     {
       path: "/changepassword/:id",
       name: "change-password",
