@@ -37,7 +37,7 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
                     volunteerApplication.getLastName(), volunteerApplication.getPhoneNumber(),
                     volunteerApplication.getEmailAddress(), volunteerApplication.isOverEighteen(),
                     volunteerApplication.getApproved(), volunteerApplication.isDander(), volunteerApplication.isPollen(),
-                    volunteerApplication.isMold(), volunteerApplication.isHouseCleaners(), volunteerApplication.getAllergies(),
+                    volunteerApplication.isMold(), volunteerApplication.isHouseCleaners(), volunteerApplication.getOtherAllergies(),
                     volunteerApplication.isAnimalCare(), volunteerApplication.isGrooming(), volunteerApplication.isCleaningKennels(),
                     volunteerApplication.isWalkingDogs(), volunteerApplication.isCatWhisperer(), volunteerApplication.isCustomerService(),
                     volunteerApplication.isLiftOverThirtyPounds(), volunteerApplication.isLaundry(), volunteerApplication.isStockingSupplies(),
@@ -106,14 +106,26 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
 
         String sql ="UPDATE volunteer_information " +
                     "SET first_name = ?, last_name = ?, phone_number = ?, email_address = ?, " +
-                    "over_eighteen = ?, approved = ?, allergies = ?, skills = ? " +
-                    "WHERE application_id = ?;";
+                    "over_eighteen = ?, approved = ?, skills = ?, mold = ?, house_cleaners = ?, " +
+                    "other_allergies = ?, animal_care = ?, grooming = ?, cleaning_kennels = ?, walking_dogs = ?, " +
+                    "cat_whisperer = ?, customer_service = ?, lift_over_thirty_pounds = ?, laundry = ?, " +
+                    "stocking_supplies = ?, dander = ?, pollen = ? WHERE application_id = ?;";
 
         try {
-            int rowsAffected = jdbcTemplate.update(sql, int.class, volunteerApplication.getFirstName(),
-                    volunteerApplication.getLastName(), volunteerApplication.getPhoneNumber(),
-                    volunteerApplication.getEmailAddress(), volunteerApplication.isOverEighteen(),
-                    volunteerApplication.getApproved(), volunteerApplication.getAllergies(), volunteerApplication.getSkills(), id);
+
+            int rowsAffected = jdbcTemplate.update(sql, volunteerApplication.getFirstName(), volunteerApplication.getLastName(),
+                    volunteerApplication.getPhoneNumber(), volunteerApplication.getEmailAddress(), volunteerApplication.isOverEighteen(),
+                    volunteerApplication.getApproved(), volunteerApplication.getSkills(), volunteerApplication.isMold(),
+                    volunteerApplication.isHouseCleaners(), volunteerApplication.getOtherAllergies(), volunteerApplication.isAnimalCare(),
+                    volunteerApplication.isGrooming(), volunteerApplication.isCleaningKennels(), volunteerApplication.isWalkingDogs(),
+                    volunteerApplication.isCatWhisperer(), volunteerApplication.isCustomerService(), volunteerApplication.isLiftOverThirtyPounds(),
+                    volunteerApplication.isLaundry(), volunteerApplication.isStockingSupplies(), volunteerApplication.isDander(),
+                    volunteerApplication.isPollen(), id);
+
+//            int rowsAffected = jdbcTemplate.update(sql, int.class, volunteerApplication.getFirstName(),
+//                    volunteerApplication.getLastName(), volunteerApplication.getPhoneNumber(),
+//                    volunteerApplication.getEmailAddress(), volunteerApplication.isOverEighteen(),
+//                    "approved", volunteerApplication.getOtherAllergies(), volunteerApplication.getSkills(), id);
 
             if (rowsAffected == 0)
             {
@@ -149,7 +161,7 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
         volunteerApplication.setPollen(results.getBoolean("pollen"));
         volunteerApplication.setMold(results.getBoolean("mold"));
         volunteerApplication.setHouseCleaners(results.getBoolean("house_cleaners"));
-        volunteerApplication.setAllergies(results.getString("other_allergies"));
+        volunteerApplication.setOtherAllergies(results.getString("other_allergies"));
         volunteerApplication.setAnimalCare(results.getBoolean("animal_care"));
         volunteerApplication.setGrooming(results.getBoolean("grooming"));
         volunteerApplication.setCatWhisperer(results.getBoolean("cat_whisperer"));
@@ -177,7 +189,7 @@ public class JdbcVolunteerApplicationDao implements VolunteerApplicationDao
         volunteerApplication.setPollen(results.getBoolean("pollen"));
         volunteerApplication.setMold(results.getBoolean("mold"));
         volunteerApplication.setHouseCleaners(results.getBoolean("house_cleaners"));
-        volunteerApplication.setAllergies(results.getString("other_allergies"));
+        volunteerApplication.setOtherAllergies(results.getString("other_allergies"));
         volunteerApplication.setAnimalCare(results.getBoolean("animal_care"));
         volunteerApplication.setGrooming(results.getBoolean("grooming"));
         volunteerApplication.setCatWhisperer(results.getBoolean("cat_whisperer"));
