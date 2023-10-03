@@ -189,7 +189,7 @@ export default {
 data() {
 return {
     application: {
-        approved: '',
+        approved: 'pending',
         overEighteen: false,
         firstName: '',
         lastName: '',
