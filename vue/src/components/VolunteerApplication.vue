@@ -189,6 +189,7 @@ export default {
 data() {
 return {
     application: {
+        approved: '',
         overEighteen: false,
         firstName: '',
         lastName: '',

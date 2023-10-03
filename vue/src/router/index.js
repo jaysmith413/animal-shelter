@@ -96,7 +96,7 @@ const router = new Router({
       name: "applications",
       component: ApproveVolunteersView,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
       
     },

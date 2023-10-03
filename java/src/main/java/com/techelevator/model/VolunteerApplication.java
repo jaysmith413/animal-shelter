@@ -14,7 +14,7 @@ public class VolunteerApplication {
 
     private boolean overEighteen;
 
-    private String approved = "pending";
+    private String approved;
 
 
 
@@ -37,6 +37,112 @@ public class VolunteerApplication {
     private boolean stockingSupplies;
 
     private String skills;
+
+
+
+   public VolunteerApplication(){}
+
+   public VolunteerApplication(int applicationId, boolean overEighteen, String approved){
+        this.applicationId = applicationId;
+        this.overEighteen = overEighteen;
+        this.approved = approved;
+   }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public int getApplicationId() {
+        return applicationId;
+    }
+
+    public void setApplicationId(int applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    public boolean isOverEighteen() {
+        return overEighteen;
+    }
+
+    public void setOverEighteen(boolean overEighteen) {
+        this.overEighteen = overEighteen;
+    }
+
+    public String getApproved() {
+        return approved;
+    }
+
+    public void setApproved(String approved) {
+        this.approved = approved;
+    }
+
+    public boolean isDander() {
+        return dander;
+    }
+
+    public void setDander(boolean dander) {
+        this.dander = dander;
+    }
+
+    public boolean isPollen() {
+        return pollen;
+    }
+
+    public void setPollen(boolean pollen) {
+        this.pollen = pollen;
+    }
+
+    public boolean isMold() {
+        return mold;
+    }
+
+    public void setMold(boolean mold) {
+        this.mold = mold;
+    }
+
+    public boolean isHouseCleaners() {
+        return houseCleaners;
+    }
+
+    public void setHouseCleaners(boolean houseCleaners) {
+        this.houseCleaners = houseCleaners;
+    }
+
+    public String getOtherAllergies() {
+        return otherAllergies;
+    }
+
+    public void setOtherAllergies(String otherAllergies) {
+        this.otherAllergies = otherAllergies;
+    }
 
     public boolean isAnimalCare() {
         return animalCare;
@@ -110,101 +216,6 @@ public class VolunteerApplication {
         this.stockingSupplies = stockingSupplies;
     }
 
-    public boolean isDander() {
-        return dander;
-    }
-
-    public void setDander(boolean dander) {
-        this.dander = dander;
-    }
-
-    public boolean isPollen() {
-        return pollen;
-    }
-
-    public void setPollen(boolean pollen) {
-        this.pollen = pollen;
-    }
-
-    public boolean isMold() {
-        return mold;
-    }
-
-    public void setMold(boolean mold) {
-        this.mold = mold;
-    }
-
-    public boolean isHouseCleaners() {
-        return houseCleaners;
-    }
-
-    public void setHouseCleaners(boolean houseCleaners) {
-        this.houseCleaners = houseCleaners;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-    public int getApplicationId() {
-        return applicationId;
-    }
-
-    public void setApplicationId(int applicationId) {
-        this.applicationId = applicationId;
-    }
-
-    public boolean isOverEighteen() {
-        return overEighteen;
-    }
-
-    public void setOverEighteen(boolean overEighteen) {
-        this.overEighteen = overEighteen;
-    }
-
-    public String getApproved() {
-        return approved;
-    }
-
-    public void setApproved(String approved) {
-        this.approved = approved;
-    }
-
-    public String getAllergies() {
-        return otherAllergies;
-    }
-
-    public void setAllergies(String otherAllergies) {
-        this.otherAllergies = otherAllergies;
-    }
-
     public String getSkills() {
         return skills;
     }
@@ -213,26 +224,30 @@ public class VolunteerApplication {
         this.skills = skills;
     }
 
-
-   public VolunteerApplication(){}
-
-   public VolunteerApplication(int applicationId, boolean overEighteen, String approved){
-        this.applicationId = applicationId;
-        this.overEighteen = overEighteen;
-        this.approved = approved;
-   }
-
     @Override
     public String toString() {
         return "VolunteerApplication{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", phoneNumber=" + phoneNumber +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", applicationId=" + applicationId +
                 ", overEighteen=" + overEighteen +
                 ", approved='" + approved + '\'' +
+                ", dander=" + dander +
+                ", pollen=" + pollen +
+                ", mold=" + mold +
+                ", houseCleaners=" + houseCleaners +
                 ", otherAllergies='" + otherAllergies + '\'' +
+                ", animalCare=" + animalCare +
+                ", grooming=" + grooming +
+                ", cleaningKennels=" + cleaningKennels +
+                ", walkingDogs=" + walkingDogs +
+                ", catWhisperer=" + catWhisperer +
+                ", customerService=" + customerService +
+                ", liftOverThirtyPounds=" + liftOverThirtyPounds +
+                ", laundry=" + laundry +
+                ", stockingSupplies=" + stockingSupplies +
                 ", skills='" + skills + '\'' +
                 '}';
     }

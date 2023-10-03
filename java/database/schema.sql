@@ -66,7 +66,6 @@ NO MAXVALUE;
 CREATE TABLE volunteer_information(
 
 	application_id int NOT NULL DEFAULT nextval('seq_volunteer_app_id') PRIMARY KEY,
-	volunteer_user_id int,
 	first_name varchar(20),
 	last_name varchar(20),
 	phone_number varchar(20),
@@ -87,10 +86,8 @@ CREATE TABLE volunteer_information(
     laundry boolean,
     stocking_supplies boolean,
     dander boolean,
-    pollen boolean,
+    pollen boolean
 
-	
-	CONSTRAINT FK_volunteer_user_id FOREIGN KEY (volunteer_user_id) REFERENCES users (user_id)
 );
 
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
