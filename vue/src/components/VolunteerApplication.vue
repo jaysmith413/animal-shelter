@@ -1,8 +1,5 @@
 <template>
 <div class="application-container">
-  <!-- <div class="image-container">
-    <img src="../img/green-cartoon-animal-header.png" alt="Purple Cartoon Animals Header" class="image-container">
-  </div> -->
   <div class="container" style="margin-bottom: 64px;">
    <div class="text">
       Volunteer Application
@@ -41,13 +38,18 @@
         <div class='field'>
           <label for="over-eighteen" class="subtitle">Are you over the age of 18?</label>
           <ul class='checkboxes'>
-            <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.overEighteen }" v-on:click="application.overEighteen = !application.overEighteen">
-              <input class='checkbox-input' id='true' name='true' type='radio' value='true' v-model="application.overEighteen">
-              <label class='checkbox-label' for='true'>Yes</label>
+            <li class='checkbox' :class="{ 'selected-checkbox': application.overEighteen === 'true' }" @click="toggleOverEighteen('true')">
+              <input class='checkbox-input' id='true' name='overEighteen' type='radio' value='true' v-model="application.overEighteen">
+              <label class='checkbox-label' for='true'>
+                <span @click="toggleOverEighteen('true')">Yes</span>
+              </label>
             </li>
-            <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.overEighteen }" v-on:click="application.overEighteen = !application.overEighteen">
-              <input class='checkbox-input' id='false' name='false' type='radio' value='false' v-model="application.overEighteen">
-              <label class='checkbox-label' for='false'>No</label>
+
+            <li class='checkbox' :class="{ 'selected-checkbox': application.overEighteen === 'false' }" @click="toggleOverEighteen('false')">
+              <input class='checkbox-input' id='false' name='overEighteen' type='radio' value='false' v-model="application.overEighteen">
+              <label class='checkbox-label' for='false'>
+                <span @click="toggleOverEighteen('false')">No</span>
+              </label>
             </li>
           </ul>
         </div>
@@ -57,21 +59,29 @@
          <div class='field'>
             <label class='label' style="font-weight: bold; font-size:16px; font-size: 24px;">Allergies?</label>
               <ul class='checkboxes'>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.dander }" v-on:click="application.dander = !application.dander">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.dander }" @click="toggleDander">
                   <input class='checkbox-input' id='choice-A' name='choice' type='checkbox' value='A' v-model="application.dander">
-                  <label class='checkbox-label' for='choice-A'> Dander</label>
+                  <label class='checkbox-label' for='choice-A'>
+                    <span @click="toggleDander">Dander</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.pollen }" v-on:click="application.pollen = !application.pollen">
-                 <input class='checkbox-input' id='choice-B' name='choice' type='checkbox' value='B' v-model="application.pollen">
-                 <label class='checkbox-label' for='choice-B'> Pollen</label>
+                <li class='checkbox' :class="{ 'selected-checkbox': application.pollen }" @click="application.pollen = !application.pollen">
+                  <input class='checkbox-input' id='choice-B' name='choice' type='checkbox' value='B' v-model="application.pollen">
+                  <label class='checkbox-label' for='choice-B'>
+                    <span @click="application.pollen = !application.pollen">Pollen</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.mold }" v-on:click="application.mold = !application.mold">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.mold }" @click="application.mold = !application.mold">
                   <input class='checkbox-input' id='choice-C' name='choice' type='checkbox' value='C' v-model="application.mold">
-                  <label class='checkbox-label' for='choice-C'> Mold</label>
+                  <label class='checkbox-label' for='choice-C'>
+                    <span @click="application.mold = !application.mold">Mold</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.householdCleaners }" v-on:click="application.householdCleaners = !application.householdCleaners">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.householdCleaners }" @click="application.householdCleaners = !application.householdCleaners">
                   <input class='checkbox-input' id='choice-D' name='choice' type='checkbox' value='D' v-model="application.householdCleaners">
-                  <label class='checkbox-label' for='choice-D'> House Cleaners</label>
+                  <label class='checkbox-label' for='choice-D'>
+                    <span @click="application.householdCleaners = !application.householdCleaners">House Cleaners</span>
+                  </label>
                 </li>
               </ul>
           </div>
@@ -90,41 +100,59 @@
           <div class='field'>
             <label class='label' style="font-weight: bold;font-size: 24px;">Skills</label>
               <ul class='checkboxes'>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.animalCare }" v-on:click="application.animalCare = !application.animalCare">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.animalCare }" @click="toggleAnimalCare">
                   <input class='checkbox-input' id='choice-0' name='choice' type='checkbox' value='0' v-model="application.animalCare">
-                  <label class='checkbox-label' for='choice-0'> Animal Care</label>
+                  <label class='checkbox-label' for='choice-0'>
+                    <span @click="toggleAnimalCare">Animal Care</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.grooming }" v-on:click="application.grooming = !application.grooming">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.grooming }" @click="toggleGrooming">
                   <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='1' v-model="application.grooming">
-                  <label class='checkbox-label' for='choice-1'> Grooming</label>
+                  <label class='checkbox-label' for='choice-1'>
+                    <span @click="toggleGrooming">Grooming</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.cleaningKennels }" v-on:click="application.cleaningKennels = !application.cleaningKennels">
-                  <input class='checkbox-input' id='choice-2' name='choice'   type='checkbox' value='2' v-model="application.cleaningKennels">
-                  <label class='checkbox-label' for='choice-2'> Cleaning Kennels</label>
+                <li class='checkbox' :class="{ 'selected-checkbox': application.cleaningKennels }" @click="toggleCleaningKennels">
+                  <input class='checkbox-input' id='choice-2' name='choice' type='checkbox' value='2' v-model="application.cleaningKennels">
+                  <label class='checkbox-label' for='choice-2'>
+                    <span @click="toggleCleaningKennels">Cleaning Kennels</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.walkingDogs }" v-on:click="application.walkingDogs = !application.walkingDogs">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.walkingDogs }" @click="toggleWalkingDogs">
                   <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='3' v-model="application.walkingDogs">
-                  <label class='checkbox-label' for='choice-3'> Walking Dogs</label>
+                  <label class='checkbox-label' for='choice-3'>
+                    <span @click="toggleWalkingDogs">Walking Dogs</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.catWhisperer }" v-on:click="application.catWhisperer = !application.catWhisperer">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.catWhisperer }" @click="toggleCatWhisperer">
                   <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='4' v-model="application.catWhisperer">
-                  <label class='checkbox-label' for='choice-4'> Cat Whisperer</label>
+                  <label class='checkbox-label' for='choice-4'>
+                    <span @click="toggleCatWhisperer">Cat Whisperer</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.customerService }" v-on:click="application.customerService = !application.customerService">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.customerService }" @click="toggleCustomerService">
                   <input class='checkbox-input' id='choice-5' name='choice' type='checkbox' value='5' v-model="application.customerService">
-                  <label class='checkbox-label' for='choice-5'> Customer Service </label>
+                  <label class='checkbox-label' for='choice-5'>
+                    <span @click="toggleCustomerService">Customer Service</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.liftOverThirtyPounds }" v-on:click="application.liftOverThirtyPounds = !application.liftOverThirtyPounds">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.liftOverThirtyPounds }" @click="toggleLiftOverThirtyPounds">
                   <input class='checkbox-input' id='choice-6' name='choice' type='checkbox' value='6' v-model="application.liftOverThirtyPounds">
-                  <label class='checkbox-label' for='choice-6'> Can lift over 30lbs</label>
+                  <label class='checkbox-label' for='choice-6'>
+                    <span @click="toggleLiftOverThirtyPounds">Can lift over 30lbs</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.laundry }" v-on:click="application.laundry = !application.laundry">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.laundry }" @click="toggleLaundry">
                   <input class='checkbox-input' id='choice-7' name='choice' type='checkbox' value='7' v-model="application.laundry">
-                  <label class='checkbox-label' for='choice-7'> Laundry</label>
+                  <label class='checkbox-label' for='choice-7'>
+                    <span @click="toggleLaundry">Laundry</span>
+                  </label>
                 </li>
-                <li class='checkbox' v-bind:class="{ 'selected-checkbox': application.stockingSupplies }" v-on:click="application.stockingSupplies = !application.stockingSupplies">
+                <li class='checkbox' :class="{ 'selected-checkbox': application.stockingSupplies }" @click="toggleStockingSupplies">
                   <input class='checkbox-input' id='choice-8' name='choice' type='checkbox' value='8' v-model="application.stockingSupplies">
-                  <label class='checkbox-label' for='choice-8'> Stocking Supplies</label>
+                  <label class='checkbox-label' for='choice-8'>
+                    <span @click="toggleStockingSupplies">Stocking Supplies</span>
+                  </label>
                 </li>
               </ul>
             </div>
@@ -201,9 +229,48 @@ methods: {
               }
            })
         },
-    changeOverEighteen() {
-    this.application.overEighteen = !this.application.overEighteen   
-    }
+    toggleOverEighteen(value) {
+      this.application.overEighteen = value;
+    },
+    toggleDander() {
+    this.application.dander = !this.application.dander;
+    },
+    togglePollen() {
+      this.application.pollen = !this.application.pollen;
+    },
+    toggleMold() {
+      this.application.mold = !this.application.mold;
+    },
+    toggleHouseholdCleaners() {
+      this.application.householdCleaners = !this.application.householdCleaners;
+    },
+    toggleAnimalCare() {
+      this.application.animalCare = !this.application.animalCare;
+    },
+    toggleGrooming() {
+      this.application.grooming = !this.application.grooming;
+    },
+    toggleCleaningKennels() {
+      this.application.cleaningKennels = !this.application.cleaningKennels;
+    },
+    toggleWalkingDogs() {
+      this.application.walkingDogs = !this.application.walkingDogs;
+    },
+    toggleCatWhisperer() {
+      this.application.catWhisperer = !this.application.catWhisperer;
+    },
+    toggleCustomerService() {
+      this.application.customerService = !this.application.customerService;
+    },
+    toggleLiftOverThirtyPounds() {
+      this.application.liftOverThirtyPounds = !this.application.liftOverThirtyPounds;
+    },
+    toggleLaundry() {
+      this.application.laundry = !this.application.laundry;
+    },
+    toggleStockingSupplies() {
+      this.application.stockingSupplies = !this.application.stockingSupplies;
+    },
   }
 }
 </script>
@@ -228,29 +295,6 @@ body{
   padding: 10px;
   font-family: 'Poppins', sans-serif;
 }
-
-/* .image-container {
-  display: inline-block;
-  position: relative;
-  line-height: 0;
-  background: #ffffff;
-}
-.image-container::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  mix-blend-mode: multiply;
-  background: #fa00cc;
-  opacity: 0.5;
-}
-.image-container > img {
-  -webkit-filter:    grayscale(100%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%) sepia(0%);
-          filter:    grayscale(100%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%) sepia(0%);
-  mix-blend-mode: none;
-} */
 
 .application-container {
   display: flex;
@@ -338,7 +382,14 @@ padding-top: 8px;
 }
 
 .selected-checkbox {
-  background-color: #CEDED0;
+  background-color: #775576;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.checkbox-label:hover, .checkbox:hover {
+  background-color: #775576;
+  color: #FFFFFF;
 }
 
 .checkbox-label {
@@ -352,6 +403,10 @@ padding-top: 8px;
 }
 
 input[type="checkbox"]  {
+   display: none;
+}
+
+input[type="radio"]  {
    display: none;
 }
 
