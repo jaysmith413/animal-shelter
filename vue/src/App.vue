@@ -16,6 +16,7 @@ import router from './router';
         <router-link v-bind:to="{ name: 'directory' }" v-if="$store.state.token != ''" class="button">Volunteer Directory</router-link>
         <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token === ''" class="button">Login</router-link>
         <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class="button">Logout</router-link>
+        <router-link v-bind:to="{ name: 'add' }" v-if="$store.state.token != ''" class="button">Add Pet</router-link>
       </div>
     </div>
     <router-view/>
