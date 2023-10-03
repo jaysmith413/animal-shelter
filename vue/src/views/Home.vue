@@ -6,7 +6,7 @@
     <table>
       <tr v-for="pet in pets" v-bind:key="pet.id">
         <div id="card">
-          <img v-bind:src="pet.image">
+          <img v-bind:src="pet.petPicture">
         <td class="pet-name">{{pet.name}}</td>
         <td>Age: {{pet.age}}</td>
         <td>{{pet.type}}</td>
@@ -36,7 +36,7 @@ export default {
   created(){
     PetService.getAllPets().then(
       (resp) => {
-        this.users = resp.data;
+        this.pets = resp.data;
       }
     );
       },

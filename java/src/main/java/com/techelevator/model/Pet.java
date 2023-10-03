@@ -1,6 +1,8 @@
 package com.techelevator.model;
 
 import java.sql.Blob;
+//import Oracle.sql.BLOB;
+
 
 public class Pet
 {
@@ -13,7 +15,7 @@ public class Pet
     private String specialNeeds;
     private boolean adopted;
     private String personalityTraits;
-    private Blob petPicture;
+    private String petPicture;
     private boolean goodWithKids;
     private boolean goodWithOtherAnimals;
     //End Variables
@@ -43,7 +45,7 @@ public class Pet
     public String getPersonalityTraits() {
         return personalityTraits;
     }
-    public Blob getPetPicture() {
+    public String getPetPicture() {
         return petPicture;
     }
     public boolean isGoodWithKids() {
@@ -79,7 +81,7 @@ public class Pet
     public void setPersonalityTraits(String personalityTraits) {
         this.personalityTraits = personalityTraits;
     }
-    public void setPetPicture(Blob petPicture) {
+    public void setPetPicture(String petPicture) {
         this.petPicture = petPicture;
     }
     public void setGoodWithKids(boolean goodWithKids) {

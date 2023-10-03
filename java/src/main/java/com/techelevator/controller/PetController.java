@@ -16,17 +16,26 @@ public class PetController
     @Autowired
     PetDao dao;
 
+    @RequestMapping(path = "/pets", method = RequestMethod.POST)
+    public Pet addPet(@RequestBody Pet pet){
+        //dao
+        return dao.addPet(pet);
+    }
+
     @RequestMapping(path="/pets", method = RequestMethod.GET)
     public List<Pet> getAllPets()
     {
         return dao.getAllPets();
     }
 
-    @RequestMapping(path = "/pets", method = RequestMethod.POST)
-    public Pet addPet(@RequestBody Pet pet){
-        //dao
-        return dao.addPet(pet);
-    }
+
+
+//    Alternative version?
+//    @RequestMapping(path = "/pets", method = RequestMethod.POST)
+//    public Pet addPet(@ModelAttribute Pet pet){
+//        //dao
+//        return dao.addPet(pet);
+//    }
 
     @RequestMapping(path="/pets/{id}", method = RequestMethod.PUT)
     public Pet updatePet(@PathVariable int id, @RequestBody Pet pet){

@@ -8,10 +8,10 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
-
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
+// import Oracle.sql.BLOB
 
 @Component
 public class JdbcPetDao implements PetDao
@@ -128,7 +128,7 @@ public class JdbcPetDao implements PetDao
         pet.setGoodWithKids(results.getBoolean("good_with_kids"));
         pet.setGoodWithOtherAnimals(results.getBoolean("good_with_other_animals"));
         pet.setId(results.getInt("pet_id"));
-        pet.setPetPicture(results.getBlob("pet_picture"));
+        pet.setPetPicture(results.getString("pet_picture"));
         pet.setName(results.getString("pet_name"));
         pet.setPersonalityTraits(results.getString("personality_traits"));
         pet.setSpecialNeeds(results.getString("pet_special_needs"));
@@ -142,8 +142,7 @@ public class JdbcPetDao implements PetDao
         pet.setGender(results.getString("pet_gender"));
         pet.setGoodWithKids(results.getBoolean("good_with_kids"));
         pet.setGoodWithOtherAnimals(results.getBoolean("good_with_other_animals"));
-
-        pet.setPetPicture(results.getBlob("pet_picture"));
+        pet.setPetPicture(results.getString("pet_picture"));
         pet.setName(results.getString("pet_name"));
         pet.setPersonalityTraits(results.getString("personality_traits"));
         pet.setSpecialNeeds(results.getString("pet_special_needs"));

@@ -37,11 +37,26 @@ CREATE TABLE pet_information (
 	pet_gender varchar(50),
 	pet_special_needs varchar(50),
 	adopted boolean,
-    pet_picture Blob CONSTRAINT,
+	pet_picture varchar(2000),
 	personality_traits varchar(100),
 	good_with_kids boolean,
-	good_with_other_animals boolean,
+	good_with_other_animals boolean
 );
+
+--CREATE TABLE pet_information (
+--	pet_id int NOT NULL DEFAULT nextval('seq_pet_id') PRIMARY KEY,
+--	pet_name varchar(50) NOT NULL,
+--	pet_type varchar(50) NOT NULL,
+--	pet_age int,
+--	pet_gender varchar(50),
+--	pet_special_needs varchar(50),
+--	adopted boolean,
+--	pet_picture BYTEA,
+--	personality_traits varchar(100),
+--	good_with_kids boolean,
+--	good_with_other_animals boolean
+--);
+
 
 CREATE SEQUENCE seq_volunteer_app_id
 INCREMENT BY 1

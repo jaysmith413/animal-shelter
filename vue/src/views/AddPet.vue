@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="addPet-container">
     <AddPet />
 </div>
 
@@ -8,11 +8,12 @@
 <script>
 
 import AddPet from '../components/AddPet.vue';
+
 export default {
 name: 'addPet',
 components: {
     AddPet
-    },
+    }
 }
 
 

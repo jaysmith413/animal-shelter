@@ -56,7 +56,7 @@
         <!-- Personality Traits -->
         <div class="form-row">
           <div class="input-data">
-            <input type="text" required id="petPersonalityTraits" v-model="addPet.petPersonalityTraits" />
+            <input type="text" required id="personalityTraits" v-model="addPet.personalityTraits" />
             <div class="underline"></div>
             <label for="" style="opacity: 70%">Personality Traits</label>
           </div>
@@ -115,22 +115,22 @@
         </div>
 
         <!-- Picture: String-->
-        <!-- <div class="form-row">
+        <div class="form-row">
           <div class="input-data">
             <input type="text" required id="getPetPicture" v-model="addPet.getPetPicture" />
             <div class="underline"></div>
             <label for="" style="opacity: 70%">Picture</label>
           </div>
-        </div> -->
+        </div>
 
         <!-- Picture: Upload -->
-        <div class="form-row" style="padding-top: 48px">
-          <div class="input-data-picture">
+        <!-- <div class="form-row" style="padding-top: 48px">
+          <div class="input-data-petPicture">
             <label for="petPicture" class="subtitle">Picture</label>
             <input type="file" required id="petPicture" ref="fileInput" @change="handleFileChange" />
             <div class="underline"></div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Submit Button Block -->
         <div class="form-row">
@@ -155,19 +155,19 @@ export default {
   data() {
     return {
       addPet: {
-        name: "",
-        type: "",
-        age: "",
-        gender: "",
-        specialNeeds: "",
-        adopted: "",
-        image: null,
-        picture: "",
-        personalityTraits: "",
-        goodWithKids: "",
-        goodWithOtherAnimals: "",
-      },
-    };
+        name: '',
+        type: '',
+        age: '',
+        gender: '',
+        specialNeeds: '',
+        adopted: false,
+        // image: null,
+        petPicture: '',
+        personalityTraits: '',
+        goodWithKids: false,
+        goodWithOtherAnimals: false,
+      }
+    }
   },
   computed: {
     isCheckboxSelected() {
@@ -177,24 +177,36 @@ export default {
     },
   },
   methods: {
+
+// Works as a String
     submitForm() {
-      const formData = new FormData();
-      for (const key in this.addPet) {
-        formData.append(key, this.addPet[key]);
-      }
-      PetService.addPet(formData).then((response) => {
-        if (response.status == 200) {
-          window.alert("Pet added");
-          this.$router.push("/");
-          this.$emit("petAdded");
-        }
-      });
-    },
-    handleFileChange(event) {
-      this.addPet.petPicture = event.target.files[0];
-    },
-  },
-};
+      PetService.addPet(this.addPet).then(
+          response => {if(response.status == 200) {
+              window.alert('Pet added')
+              this.$router.push("/")
+              }
+           })
+        },
+  }
+}
+// Testing as an Upload:
+  //   submitForm() {
+  //     const formData = new FormData();
+  //     for (const key in this.addPet) {
+  //       formData.append(key, this.addPet[key]);
+  //     }
+  //     PetService.addPet(formData).then((response) => {
+        
+  //       if (response.status == 200) {
+  //         window.alert("Pet added");
+  //         this.$router.push("/");
+  //       }
+  //     });
+  //   },
+  //   handleFileChange(event) {
+  //     this.addPet.petPicture = event.target.files[0];
+  //   },
+  // 
 </script>
 
 <style scoped>
@@ -410,14 +422,14 @@ form .form-row .textarea {
   z-index: 2;
 }
 
-.input-data-picture {
+.input-data-petPicture {
   margin-top: -30px;
   display: flex;
   flex-direction: column;
   margin-left: 30px;
 }
 
-.input-data-picture label {
+.input-data-petPicture label {
   margin-bottom: 10px;
 }
 
