@@ -94,12 +94,15 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public boolean create(String username, String password, String role) {
-        String insertUserSql = "insert into users (username,password_hash,role) values (?,?,?)";
+    public boolean create(String username, String password, String role, String firstName, String lastName,
+                          String phoneNumber, String emailAddress) {
+        String insertUserSql = "insert into users (username,password_hash,role, first_name, last_name, phone_number, " +
+                               "email_address) values (?,?,?,?,?,?,?)";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
 
-        return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
+        return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole, firstName, lastName, phoneNumber,
+                emailAddress) == 1;
     }
 
     //Used for updating password of newly approved volunteer if isAdmin is false

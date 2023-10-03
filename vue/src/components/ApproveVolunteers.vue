@@ -51,6 +51,7 @@ data() {
         applications: [],
         user: {
         username: '',
+        firstName: '',
         password: 'password',
         confirmPassword: 'password',
         role: 'user',
@@ -71,6 +72,10 @@ data() {
             console.log(this.applications[indexNum].applicationId)
             this.applications[indexNum].approved = 'approved';
             this.user.username = this.applications[indexNum].emailAddress
+            this.user.firstName = this.applications[indexNum].firstName
+            this.user.lastName = this.applications[indexNum].lastName
+            this.user.phoneNumber = this.applications[indexNum].phoneNumber
+            this.user.emailAddress = this.applications[indexNum].emailAddress
             this.applications[indexNum].phoneNumber = String(this.applications[indexNum].phoneNumber)
             console.log(typeof this.applications[indexNum].phoneNumber)
             VolunteerService.updateApplication(this.applications[indexNum])

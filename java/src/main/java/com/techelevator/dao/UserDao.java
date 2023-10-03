@@ -19,5 +19,6 @@ public interface UserDao {
     List<User> getApprovedUsers();
 
 
-    boolean create(String username, String password, String role);
+    boolean create(String username, String password, String role, String firstName, String lastName,
+                   String phoneNumber, String emailAddress);
 }
