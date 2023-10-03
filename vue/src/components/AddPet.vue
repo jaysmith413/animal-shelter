@@ -11,7 +11,7 @@
       <form v-on:submit.prevent="submitForm">
         <div class="form-row">
           <div class="input-data">
-            <input type="text" required id="PetName" v-model="addPet.petName" />
+            <input type="text" required id="petName" v-model="addPet.name" />
             <div class="underline"></div>
             <label for="" style="opacity: 70%">Name</label>
           </div>
@@ -20,7 +20,7 @@
         <!-- Animal Type -->
         <div class="form-row">
           <div class="input-data">
-            <input type="text" required id="petType" v-model="addPet.petType" />
+            <input type="text" required id="petType" v-model="addPet.type" />
             <div class="underline"></div>
             <label for="" style="opacity: 70%">Animal Type</label>
           </div>
@@ -29,7 +29,7 @@
         <!-- Age -->
         <div class="form-row">
           <div class="input-data">
-            <input type="text" required id="petAge" v-model="addPet.petAge" />
+            <input type="text" required id="petAge" v-model="addPet.age" />
             <div class="underline"></div>
             <label for="" style="opacity: 70%">Age</label>
           </div>
@@ -38,7 +38,7 @@
         <!-- Gender -->
         <div class="form-row">
           <div class="input-data">
-            <input type="text" required id="petGender" v-model="addPet.petGender" />
+            <input type="text" required id="petGender" v-model="addPet.gender" />
             <div class="underline"></div>
             <label for="" style="opacity: 70%">Gender</label>
           </div>
@@ -47,7 +47,7 @@
         <!-- Special Needs -->
         <div class="form-row">
           <div class="input-data">
-            <input type="text" required id="petSpecialNeeds" v-model="addPet.petSpecialNeeds" />
+            <input type="text" required id="petSpecialNeeds" v-model="addPet.specialNeeds" />
             <div class="underline"></div>
             <label for="" style="opacity: 70%">Special Needs</label>
           </div>
@@ -117,7 +117,7 @@
         <!-- Picture: String-->
         <div class="form-row">
           <div class="input-data">
-            <input type="text" required id="getPetPicture" v-model="addPet.getPetPicture" />
+            <input type="text" required id="petPicture" v-model="addPet.petPicture" />
             <div class="underline"></div>
             <label for="" style="opacity: 70%">Picture</label>
           </div>
