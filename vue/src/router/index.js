@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
-import Register from '../views/Register.vue'
 import store from '../store/index'
 import Application from '../views/Application.vue'
 import FirstLoginView from '../views/FirstLoginView.vue'
@@ -48,14 +47,6 @@ const router = new Router({
       path: "/logout",
       name: "logout",
       component: Logout,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: Register,
       meta: {
         requiresAuth: false
       }

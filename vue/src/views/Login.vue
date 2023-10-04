@@ -29,7 +29,6 @@
           <div class="form-row">
             <div class="input-data">
               <button type="submit">SIGN IN</button>
-              <p><router-link :to="{ name: 'register' }" style="color: #5E8558;">Need an account? Sign Up!</router-link></p>
             </div>         
           </div>
         </form>

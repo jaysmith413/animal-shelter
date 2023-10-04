@@ -19,9 +19,7 @@
         <td>Personality Traits: {{pet.personalityTraits}}</td>
         <td>Good with Kids: {{pet.goodWithKids}}</td>
         <td>Good with Other Animals: {{pet.goodWithOtherAnimals}}</td>
-        <button> 
-          <router-link v-bind:to="{ name: 'updatePet', params: {id: pet.id} }" v-if="$store.state.token != ''" class="button" v-bind:pet="pet" style="text-decoration: none; color: #FFFFFF; font-weight: bold; font-size: 1rem;">Update Pet</router-link>
-        </button>
+        <router-link v-bind:to="{ name: 'updatePet', params: {id: pet.id} }" v-if="$store.state.token != ''" class="button" v-bind:pet="pet"><button>Update Pet</button></router-link>
         </div>
       </tr>
     </table>
@@ -101,6 +99,11 @@ button {
   margin-top: 24px;
   border-radius: 8px;
   border: none;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
 }
 
 button:hover {
@@ -141,6 +144,7 @@ img {
   word-wrap: break-word;
   height: auto;
   align-items: stretch;
+  justify-content: space-between;
 }
 
 td{

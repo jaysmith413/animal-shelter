@@ -13,12 +13,11 @@ import router from './router';
       <div class="menu">
         <router-link v-bind:to="{ name: 'home' }" class="button">Home</router-link>
         <router-link v-bind:to="{ name: 'apply'}" v-if="$store.state.token === ''" class="button">Be a Volunteer</router-link>
-        <router-link v-bind:to="{ name: 'adopted' }" v-if="$store.state.token === ''" class="button">Adopted</router-link>
+        <router-link v-bind:to="{ name: 'adopted' }" class="button">Adopted</router-link>
         <router-link v-bind:to="{ name: 'directory' }" v-if="$store.state.token != ''" class="button">Volunteer Directory</router-link>
         <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token === ''" class="button">Login</router-link>
         <router-link v-bind:to="{ name: 'applications' }" v-if="$store.state.user.username === 'admin'" class="button">View Applications</router-link>
         <router-link v-bind:to="{ name: 'addPet' }" v-if="$store.state.token != ''" class="button">Add Pet</router-link>
-        <!-- <router-link v-bind:to="{ name: 'updatePet' }" v-if="$store.state.token != ''" class="button">Update Pet</router-link> -->
         <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class="button">Logout</router-link>
       </div>
     </div>
@@ -102,7 +101,7 @@ input[type=checkbox] {
 }
 
 /* APPLYING MEDIA QUERIES */
-@media (max-width: 992px) {
+@media (max-width: 1250px) {
 
   #logo {
     width: 150px;
@@ -116,7 +115,7 @@ input[type=checkbox] {
     left: 0;
     text-align: center;
     padding: 16px 0 4px 0;
-    margin-top: 280px;
+    margin-top: 40%;
   }
 
   .button {

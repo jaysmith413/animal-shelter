@@ -16,7 +16,6 @@
             <label for="" style="opacity: 70%">Name</label>
           </div>
         </div>
-
         <!-- Animal Type -->
         <div class="form-row">
           <div class="input-data">
@@ -25,7 +24,6 @@
             <label for="" style="opacity: 70%">Animal Type</label>
           </div>
         </div>
-
         <!-- Age -->
         <div class="form-row">
           <div class="input-data">
@@ -34,7 +32,6 @@
             <label for="" style="opacity: 70%">Age</label>
           </div>
         </div>
-
         <!-- Gender -->
         <div class="form-row">
           <div class="input-data">
@@ -43,7 +40,6 @@
             <label for="" style="opacity: 70%">Gender</label>
           </div>
         </div>
-
         <!-- Special Needs -->
         <div class="form-row">
           <div class="input-data">
@@ -52,7 +48,6 @@
             <label for="" style="opacity: 70%">Special Needs</label>
           </div>
         </div>
-
         <!-- Personality Traits -->
         <div class="form-row">
           <div class="input-data">
@@ -67,48 +62,58 @@
           <div class="field">
             <label for="adopted" class="subtitle">Adopted?</label>
             <ul class="checkboxes">
-              <li class="checkbox" v-bind:class="{ 'selected-checkbox': updatePet.adopted }" v-on:click="updatePet.adopted = !updatePet.adopted">
-                <input class="checkbox-input" id="adopted-true" name="adopted" type="radio" value="true" v-model="updatePet.adopted" />
-                <label class="checkbox-label" for="adopted-true">Yes</label>
+              <li class="checkbox" :class="{ 'selected-checkbox': updatePet.adopted === 'true' }" @click="toggleAdopted('true')">
+                <input class="checkbox-input" id="true-adopted" name="adopted" type="radio" value="true" v-model="updatePet.adopted">
+                <label class="checkbox-label" for="true">
+                  <span @click="toggleAdopted('true')">Yes</span>
+                </label>
               </li>
-              <li class="checkbox" v-bind:class="{ 'selected-checkbox': updatePet.adopted }" v-on:click="updatePet.adopted = !updatePet.adopted">
-                <input class="checkbox-input" id="adopted-false" name="adopted" type="radio" value="false" v-model="updatePet.adopted" />
-                <label class="checkbox-label" for="adopted-false">No</label>
+              <li class="checkbox" :class="{ 'selected-checkbox': updatePet.adopted === 'false'}" @click="toggleAdopted('false')">
+                <input class="checkbox-input" id="false-adopted" name="adopted" type="radio" value="false" v-model="updatePet.adopted">
+                <label class="checkbox-label" for="false">
+                  <span @click="toggleAdopted('false')">No</span>
+                </label>
               </li>
             </ul>
           </div>
         </div>
-
         <!-- Good With Kids -->
         <div class="form-row" style="padding-top: 48px">
           <div class="field">
             <label for="goodWithKids" class="subtitle">Good With Kids?</label>
             <ul class="checkboxes">
-              <li class="checkbox" v-bind:class="{ 'selected-checkbox': updatePet.goodWithKids }" v-on:click="updatePet.goodWithKids = !updatePet.goodWithKids">
-                <input class="checkbox-input" id="goodWithKids-true" name="goodWithKids" type="radio" value="true" v-model="updatePet.goodWithKids" />
-                <label class="checkbox-label" for="goodWithKids-true">Yes</label>
+              <li class="checkbox" :class="{ 'selected-checkbox': updatePet.goodWithKids === 'true' }" @click="toggleGoodWithKids('true')">
+                <input class="checkbox-input" id="true-goodWithKids" name="goodWithKids" type="radio" value="true" v-model="updatePet.goodWithKids">
+                <label class="checkbox-label" for="true">
+                  <span @click="toggleGoodWithKids('true')">Yes</span>
+                </label>
               </li>
-              <li class="checkbox" v-bind:class="{ 'selected-checkbox': updatePet.goodWithKids }" v-on:click="updatePet.goodWithKids = !updatePet.goodWithKids">
-                <input class="checkbox-input" id="goodWithKids-false" name="goodWithKids" type="radio" value="false" v-model="updatePet.goodWithKids" />
-                <label class="checkbox-label" for="goodWithKids-false">No</label>
+              <li class="checkbox" :class="{ 'selected-checkbox': updatePet.goodWithKids === 'false' }" @click="toggleGoodWithKids('false')">
+                <input class="checkbox-input" id="false-goodWithKids" name="goodWithKids" type="radio" value="false" v-model="updatePet.goodWithKids">
+                  <label class="checkbox-label" for="false">
+                <span @click="toggleGoodWithKids('false')">No</span>
+                </label>
               </li>
             </ul>
           </div>
         </div>
-
         <!-- Good With Other Animals -->
         <div class="form-row" style="padding-top: 48px">
           <div class="field">
             <label for="goodWithOtherAnimals" class="subtitle"
               >Good With Other Animals?</label>
             <ul class="checkboxes">
-              <li class="checkbox" v-bind:class="{ 'selected-checkbox': updatePet.goodWithOtherAnimals }" v-on:click="updatePet.goodWithOtherAnimals = !updatePet.goodWithOtherAnimals">
-                <input class="checkbox-input" id="goodWithOtherAnimals-true" name="goodWithOtherAnimals" type="radio" value="true" v-model="updatePet.goodWithOtherAnimals" />
-                <label class="checkbox-label" for="goodWithOtherAnimals-true">Yes</label>
+              <li class="checkbox" :class="{ 'selected-checkbox': updatePet.goodWithOtherAnimals === 'true' }" @click="toggleGoodWithOtherAnimals('true')">
+                <input class="checkbox-input" id="true-goodWithOtherAnimals" name="goodWithOtherAnimals" type="radio" value="true" v-model="updatePet.goodWithOtherAnimals">
+                <label class="checkbox-label" for="true">
+                  <span @click="toggleGoodWithOtherAnimals('true')">Yes</span>
+                </label>
               </li>
-              <li class="checkbox" v-bind:class="{ 'selected-checkbox': updatePet.goodWithOtherAnimals }" v-on:click="updatePet.goodWithOtherAnimals = !updatePet.goodWithOtherAnimals">
-                <input class="checkbox-input" id="goodWithOtherAnimals-false" name="goodWithOtherAnimals" type="radio" value="false" v-model="updatePet.goodWithOtherAnimals" />
-                <label class="checkbox-label" for="goodWithOtherAnimals-false">No</label>
+              <li class="checkbox" :class="{ 'selected-checkbox': updatePet.goodWithOtherAnimals === 'false' }" @click="toggleGoodWithOtherAnimals('false')">
+                <input class="checkbox-input" id="false-goodWithOtherAnimals" name="goodWithOtherAnimals" type="radio" value="false" v-model="updatePet.goodWithOtherAnimals">
+                <label class="checkbox-label" for="false">
+                  <span @click="toggleGoodWithOtherAnimals('false')">No</span>
+                </label>
               </li>
             </ul>
           </div>
@@ -194,7 +199,6 @@ export default {
     },
   },
   methods: {
-
 // Works as a String
     submitForm() {
     console.log(this.pet);
@@ -205,6 +209,15 @@ export default {
               }
            })
         },
+       toggleAdopted(value) {
+      this.updatePet.adopted = value;
+    },
+    toggleGoodWithKids(value) {
+    this.updatePet.goodWithKids = value;
+    },
+    toggleGoodWithOtherAnimals(value) {
+    this.updatePet.goodWithOtherAnimals = value;
+    },
   }
 }
 // Testing as an Upload:
@@ -320,11 +333,18 @@ form {
 }
 
 .checkbox:hover {
-  background-color: #ceded0;
+  background-color: #CEDED0;
 }
 
 .selected-checkbox {
-  background-color: #ceded0;
+  background-color: #775576;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.checkbox-label:hover, .checkbox:hover {
+  background-color: #775576;
+  color: #FFFFFF;
 }
 
 .checkbox-label {
@@ -337,8 +357,8 @@ form {
   margin-bottom: 0;
 }
 
-input[type="checkbox"] {
-  display: none;
+input[type="radio"]  {
+   display: none;
 }
 
 form .form-row .input-data {
