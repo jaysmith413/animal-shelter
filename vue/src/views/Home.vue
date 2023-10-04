@@ -20,7 +20,8 @@
         <td>Good with Kids: {{pet.goodWithKids}}</td>
         <td>Good with Other Animals: {{pet.goodWithOtherAnimals}}</td>
         <button> 
-          <router-link v-bind:to="{ name: 'updatePet', params: {id: pet.id} }" v-if="$store.state.token != ''" class="button" v-bind:pet="pet">Update Pet</router-link></button>
+          <router-link v-bind:to="{ name: 'updatePet', params: {id: pet.id} }" v-if="$store.state.token != ''" class="button" v-bind:pet="pet" style="text-decoration: none; color: #FFFFFF; font-weight: bold; font-size: 1rem;">Update Pet</router-link>
+        </button>
         </div>
       </tr>
     </table>
@@ -44,22 +45,19 @@ export default {
         this.pets = resp.data;
       }
     );
-      },
+  },
 };
-
 </script>
 
 <style scoped>
-
-
-.home{
+.home {
   background-image: url(../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png);
   background-repeat: repeat;
   margin: 0;
   padding: 0;
 }
 
-.page-title{
+.page-title {
   background: #ffffff;
   border-radius: 24px;
   text-decoration: none;
@@ -68,7 +66,7 @@ export default {
   margin: 0 auto;
 }
 
-.page-title2{
+.page-title2 {
   background: #ffffff;
   border-radius: 24px;
   text-decoration: none;
@@ -77,17 +75,17 @@ export default {
   width: 650px;
 }
 
-h1{
+h1 {
   text-align: center;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   font-size: 50px;
   color: #5E8558;
   margin: 0; 
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
-h2{
+h2 {
   text-align: center;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
@@ -97,7 +95,19 @@ h2{
   margin-top: 20px;
 }
 
-table{
+button {
+  background-color: #5E8558;
+  padding: 16px 0;
+  margin-top: 24px;
+  border-radius: 8px;
+  border: none;
+}
+
+button:hover {
+  background-color: #7EA578;
+}
+
+table {
   font-family: 'Poppins', sans-serif;
   text-transform: capitalize;
   display: flex;
@@ -106,12 +116,12 @@ table{
   align-items: stretch;
 }
 
-tr{
+tr {
 display: flex;
 align-items: stretch;
 }
 
-img{
+img {
   height: 350px;
   width: 350px;
   overflow: hidden;
@@ -137,14 +147,13 @@ td{
   max-width: 350px;
 }
 
-
 .pet-name {
   font-size: 1.5rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
   font-weight: bold;
   color: #5E8558;
   font-family: "Poppins", sans-serif;
   text-decoration: underline;
 }
-
-
 </style>

@@ -28,11 +28,6 @@
       <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="2">
       <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="3">
     </div>
-    <div class="background">
-      <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="nonstretch">
-      <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="2">
-      <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="3">
-    </div>
   </div>
 </template>
 

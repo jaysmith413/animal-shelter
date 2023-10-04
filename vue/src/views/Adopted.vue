@@ -137,6 +137,8 @@ td{
 
 .pet-name {
   font-size: 1.5rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
   font-weight: bold;
   color: #5E8558;
   font-family: "Poppins", sans-serif;

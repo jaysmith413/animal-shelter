@@ -1,9 +1,6 @@
 <template>
   <div id="login">
     <div class="application-container">
-      <!-- <div class="image-container">
-        <img src="../img/green-cartoon-animal-header.png" alt="Purple Cartoon Animals Header" class="image-container">
-      </div> -->
       <div class="container" style="margin-bottom: 64px;">
         <div class="text">
           Please Sign In
@@ -122,42 +119,12 @@ body{
   background-image: url(../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png);
 }
 
-/* .image-container {
-  display: inline-block;
-  position: relative;
-  line-height: 0;
-  background: #ffffff;
-}
-.image-container::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  mix-blend-mode: multiply;
-  background: #fa00cc;
-  opacity: 0.5;
-}
-.image-container > img {
-  -webkit-filter:    grayscale(100%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%) sepia(0%);
-          filter:    grayscale(100%) hue-rotate(0deg) invert(0%) opacity(100%) saturate(100%) sepia(0%);
-  mix-blend-mode: none;
-} */
-
 .application-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-/* .image-container {
-  width: 100%;
-  max-height: 500px;
-  overflow: hidden;
-  position: relative;
-} */
 
 .empty{
   display: flex;
