@@ -13,6 +13,7 @@ import router from './router';
       <div class="menu">
         <router-link v-bind:to="{ name: 'home' }" class="button">Home</router-link>
         <router-link v-bind:to="{ name: 'apply'}" v-if="$store.state.token === ''" class="button">Be a Volunteer</router-link>
+        <router-link v-bind:to="{ name: 'adopted' }" v-if="$store.state.token === ''" class="button">Adopted</router-link>
         <router-link v-bind:to="{ name: 'directory' }" v-if="$store.state.token != ''" class="button">Volunteer Directory</router-link>
         <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token === ''" class="button">Login</router-link>
         <router-link v-bind:to="{ name: 'applications' }" v-if="$store.state.user.username === 'admin'" class="button">View Applications</router-link>

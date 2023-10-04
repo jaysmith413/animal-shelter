@@ -25,7 +25,7 @@ public class JdbcPetDao implements PetDao
     @Override
     public List<Pet> getAllPets()
     {
-        String sql = "SELECT * from pet_information;";
+        String sql = "SELECT * from pet_information WHERE adopted = false;";
         SqlRowSet results = template.queryForRowSet(sql);
 
         List<Pet> pets = new ArrayList<>();

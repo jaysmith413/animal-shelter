@@ -1,26 +1,25 @@
 <template>
-  <div class="home">
+  <div class="adopted">
     <div class="page-title">
-      <h1>Home</h1>
+      <h1>Adopted Pets</h1>
+      <!-- <h2>Let's celebrate these furry friends who found their forever home!</h2> -->
     </div>
-     <div class="page-title2">
-      <h2>Browse our available pets below!</h2>
+    <div class="page-title2">
+      <h2>Let's celebrate these furry friends who found their forever home!</h2>
     </div>
     <table>
-      <tr v-for="pet in pets" v-bind:key="pet.id">
+      <tr v-for="adopted in adopt" v-bind:key="adopted.id">
         <div id="card">
-          <img v-bind:src="pet.petPicture">
-        <td class="pet-name">{{pet.name}}</td>
-        <td>Age: {{pet.age}}</td>
-        <td>{{pet.type}}</td>
-        <td>Adoption Status: {{pet.adopted}}</td>
-        <td>Gender: {{pet.gender}}</td>
-        <td>Special Needs: {{pet.specialNeeds}}</td>
-        <td>Personality Traits: {{pet.personalityTraits}}</td>
-        <td>Good with Kids: {{pet.goodWithKids}}</td>
-        <td>Good with Other Animals: {{pet.goodWithOtherAnimals}}</td>
-        <button> 
-          <router-link v-bind:to="{ name: 'updatePet', params: {id: pet.id} }" v-if="$store.state.token != ''" class="button" v-bind:pet="pet">Update Pet</router-link></button>
+          <img v-bind:src="adopted.image">
+        <td class="pet-name">{{adopted.name}}</td>
+        <td>Age: {{adopted.age}}</td>
+        <td>{{adopted.type}}</td>
+        <!-- <td>Adoption Status: {{adopted.adopted}}</td> -->
+        <td>Gender: {{adopted.gender}}</td>
+        <td>Special Needs: {{adopted.specialNeeds}}</td>
+        <td>Personality Traits: {{adopted.personalityTraits}}</td>
+        <td>Good with Kids: {{adopted.goodWithKids}}</td>
+        <td>Good with Other Animals: {{adopted.goodWithOtherAnimals}}</td>
         </div>
       </tr>
     </table>
@@ -29,30 +28,28 @@
 
 <script>
 
-import PetService from '../services/PetService.js';
+import AdoptedService from '../services/AdoptedService';
 
 export default {
-  name: "home",
+ name: "adopted",
   data(){
     return {
-      pets:[]
-    };
+      adopt:[]
+    }
   },
   created(){
-    PetService.getAllPets().then(
+    AdoptedService.getAdoptedPets().then(
       (resp) => {
-        this.pets = resp.data;
+        this.adopt = resp.data;
       }
     );
-      },
-};
-
+  }
+}
 </script>
 
 <style scoped>
 
-
-.home{
+.adopted{
   background-image: url(../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png);
   background-repeat: repeat;
   margin: 0;
@@ -74,7 +71,7 @@ export default {
   text-decoration: none;
   align-items: center;
   margin: 0 auto;
-  width: 650px;
+  width: 1200px;
 }
 
 h1{
@@ -84,7 +81,7 @@ h1{
   font-size: 50px;
   color: #5E8558;
   margin: 0; 
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 h2{
@@ -145,6 +142,5 @@ td{
   font-family: "Poppins", sans-serif;
   text-decoration: underline;
 }
-
 
 </style>

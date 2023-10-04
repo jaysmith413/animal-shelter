@@ -108,6 +108,18 @@ VALUES ('frizzle', 'bird', 8, 'female', 'no', 'yes', 'https://assets.petco.com/p
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
 VALUES ('king julien', 'lemur', 18, 'male', 'no', 'yes', 'https://www.akronzoo.org/sites/default/files/styles/uncropped_xl/public/2022-05/Ring-tailed-lemur-main.png?itok=T7g7bQt6', 'loud, loves to sing', 'yes', 'yes');
 
+INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
+VALUES ('jimbo', 'dog', 11, 'lady', 'yes- sleep apnea', 'yes', 'https://www.thisdogslife.co/wp-content/uploads/2019/02/marnie-hero-3.png', 'raging termagant, i mean look at that hat', 'no', 'no');
+
+INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
+VALUES ('funbun', 'rabbit', 8, 'female', 'yes- cant jump', 'no', 'https://images.squarespace-cdn.com/content/v1/54ff9a97e4b063025cf9895c/1562176262623-5QYBI3C51T1TTDIS2JOJ/Sable+chinchilla+holland+lop+buck?format=2500w', 'old and sad, crisis-mode activated', 'no', 'no');
+
+INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
+VALUES ('chubs', 'chinchilla', 9, 'male', 'yes- incontinence', 'no', 'https://a-z-animals.com/media/2021/12/Silver-animals-Chinchilla.jpg', 'happy, dusty', 'yes', 'yes');
+
+INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
+VALUES ('snowball', 'rat', 4, 'female', 'no', 'no', 'https://i.redd.it/z74e00rt1m151.jpg', 'energetic, loves to snuggle', 'yes', 'no');
+
 --Testing Volunteer Directory:
 --INSERT INTO users (username, password_hash, role, first_name, last_name, phone_number, email_address, has_logged_in)
 --VALUES ('newperson', 'password', 'user', 'Bob', 'Smith', '123-456-7890', 'bobsmith@gmail.com', true);

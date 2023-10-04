@@ -11,7 +11,7 @@ import ApproveVolunteersView from '../views/ApproveVolunteersView.vue'
 import Directory from '../views/Directory.vue'
 import AddPet from '../views/AddPet.vue'
 import UpdatePet from '../views/UpdatePet.vue'
-
+import Adopted from '../views/Adopted.vue'
 
 Vue.use(Router)
 
@@ -106,6 +106,16 @@ const router = new Router({
       component: ApproveVolunteersView,
       meta: {
         requiresAuth: true
+      }
+      
+    },
+
+    {  
+      path: "/adopted",
+      name: "adopted",
+      component: Adopted,
+      meta: {
+        requiresAuth: false
       }
       
     },
