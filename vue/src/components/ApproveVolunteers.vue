@@ -100,7 +100,10 @@ data() {
             console.log(this.applications)
             let indexNum = this.applications.findIndex((application) => id == application.applicationId);
             console.log(this.applications[indexNum].applicationId)
-            this.applications[indexNum].approved = 'approved';
+            if(this.applications[indexNum].approved == 'approved') {
+                alert('This application has already been approved')
+            } else {
+                this.applications[indexNum].approved = 'approved';
             this.user.username = this.applications[indexNum].emailAddress
             this.user.firstName = this.applications[indexNum].firstName
             this.user.lastName = this.applications[indexNum].lastName
@@ -110,6 +113,8 @@ data() {
             console.log(typeof this.applications[indexNum].phoneNumber)
             VolunteerService.updateApplication(this.applications[indexNum])
         AuthService.register(this.user)
+            }
+           
         },
 
         denyApplication(id) {
