@@ -307,19 +307,6 @@ body{
   background-image: url(../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png);
 }
 
-.image-container {
-  width: 100%;
-  max-height: 600px;
-  overflow: hidden;
-  position: relative;
-}
-
-img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-}
-
 .container {
   max-width: 60%;
   width: 60%;
