@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>Please create a new password</h1>
+    <div class="text">
+      Please Create a New Password
+   </div>
 <form v-on:submit.prevent="registerNewPassword">
     <div class="form-input-group">
         <label for="password">New Password</label>
@@ -58,6 +60,55 @@ export default {
 </script>
 
 <style>
+.text{
+  text-align: left;
+  font-size: 48px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: #5E8558;
+  margin-left: 24px;
+}
 
+@media (max-width: 1000px) {
+    .container {
+    max-width: 85%;
+    width: 85%;
+    padding: 16px 16px 0 16px;
+    margin-top: -450px;
+    z-index: 1;
+  }
+
+  .text{
+    font-size: 24px;
+    text-align: left;
+    line-height: 40px;
+    margin-left: 8px;
+  }
+
+  .checkbox {
+    width: 95%;
+  }
+
+  form {
+    padding: 10px 0 0 0;
+  }
+
+  .form-row{
+    display: block;
+  }
+
+  form .form-row .input-data{
+    margin: 0 auto;
+    width: 88%;
+  }
+
+  .other-padding {
+    padding-top: 24px;
+  }
+
+  .submit-btn .input-data{
+    width: 100%!important;
+  }
+}
 
 </style>
