@@ -454,6 +454,7 @@ form .form-row .textarea{
   transform-origin: center;
   transition: transform 0.3s ease;
 }
+
 .input-data input:focus ~ .underline:before,
 .input-data input:valid ~ .underline:before,
 .textarea textarea:focus ~ .underline:before,

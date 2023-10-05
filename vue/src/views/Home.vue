@@ -44,7 +44,6 @@
         <td class="pet-name">{{pet.name}}</td>
         <td>Age: {{pet.age}}</td>
         <td>{{pet.type}}</td>
-        <td>Adoption Status: {{pet.adopted}}</td>
         <td>Gender: {{pet.gender}}</td>
         <td>Special Needs: {{pet.specialNeeds}}</td>
         <td>Personality Traits: {{pet.personalityTraits}}</td>

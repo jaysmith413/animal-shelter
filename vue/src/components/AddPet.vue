@@ -32,15 +32,6 @@
           </div>
         </div>
 
-        <!-- Gender -->
-        <div class="form-row">
-          <div class="input-data">
-            <input type="text" required id="petGender" v-model="addPet.gender" />
-            <div class="underline"></div>
-            <label for="" style="opacity: 70%">Gender</label>
-          </div>
-        </div>
-
         <!-- Special Needs -->
         <div class="form-row">
           <div class="input-data">
@@ -59,8 +50,24 @@
           </div>
         </div>
 
-        <!-- Adoption Status -->
+        <!-- Gender -->
         <div class="form-row" style="padding-top: 32px">
+          <div class="field">
+            <label for="gender" class="subtitle">Gender</label>
+              <ul class="checkboxes">
+                <li class="checkbox" :class="{ 'selected-checkbox': addPet.gender === 'male' }" @click="toggleGender('male')">
+                  <input class="checkbox-input" id="gender-male" name="male" type="radio" value="male" v-model="addPet.gender" />
+                  <label class="checkbox-label" for="gender-male">Male</label>
+                </li>
+                <li class="checkbox" :class="{ 'selected-checkbox': addPet.gender === 'female' }" @click="toggleGender('female')">
+                  <input class="checkbox-input" id="gender-female" name="female" type="radio" value="female" v-model="addPet.gender" />
+                  <label class="checkbox-label" for="gender-female">Female</label>
+                </li>
+              </ul>
+          </div>
+        </div>
+        <!-- Adoption Status -->
+        <!-- <div class="form-row" style="padding-top: 32px">
           <div class="field">
             <label for="adopted" class="subtitle">Has the Animal Been Adopted?</label>
               <ul class="checkboxes">
@@ -74,7 +81,7 @@
                 </li>
               </ul>
           </div>
-        </div>
+        </div> -->
 
         <!-- Good With Kids -->
         <div class="form-row" style="padding-top: 24px">
@@ -190,6 +197,9 @@ export default {
       toggleGoodWithOtherAnimals(value) {
         this.addPet.goodWithOtherAnimals = value;
       },
+    toggleGender(value) {
+        this.addPet.gender = value;
+    }
   },
 };
 // Testing as an Upload:
