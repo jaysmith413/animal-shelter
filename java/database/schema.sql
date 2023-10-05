@@ -144,5 +144,45 @@ VALUES ('donatello', 'turtle', 30, 'male', 'scares easily', 'no', 'https://image
 --Testing Volunteer Directory:
 --INSERT INTO users (username, password_hash, role, first_name, last_name, phone_number, email_address, has_logged_in)
 --VALUES ('newperson', 'password', 'user', 'Bob', 'Smith', '123-456-7890', 'bobsmith@gmail.com', true);
+INSERT INTO volunteer_information (first_name, last_name, phone_number, email_address, over_eighteen, approved, skills, mold, house_cleaners, other_allergies,
+animal_care, grooming, cleaning_kennels, walking_dogs, cat_whisperer,
+customer_service, lift_over_thirty_pounds, laundry, stocking_supplies, dander, pollen)
+VALUES ('Samantha', 'Clark', '555-876-5432', 'samantha.c@aol.com', true, 'pending', 'anything', false, false, 'N/A', true, true, true, true, true, true, true, true, true, false, false);
+
+INSERT INTO volunteer_information (first_name, last_name, phone_number, email_address, over_eighteen, approved, skills, mold,
+house_cleaners, other_allergies, animal_care, grooming, cleaning_kennels, walking_dogs, cat_whisperer, customer_service,
+lift_over_thirty_pounds, laundry, stocking_supplies, dander, pollen)
+VALUES ('Olivia', 'Hall', '555-432-8765', 'olivia.m.hall@gmail.com', false, 'pending', 'animal lover',
+false, false, 'none', true,
+false, false, true, true, false, false, false, false, false, false);
+
+INSERT INTO volunteer_information (first_name, last_name, phone_number, email_address, over_eighteen, approved, skills, mold,
+house_cleaners, other_allergies, animal_care, grooming, cleaning_kennels, walking_dogs, cat_whisperer, customer_service,
+lift_over_thirty_pounds, laundry, stocking_supplies, dander, pollen)
+VALUES ('Sophia', 'Adams', '555-567-2345', 'sophia123@yahoo.com', true, 'pending', 'I love cats', true, false, 'nothing', true,
+true, false, false, true, false, false, false, false, false, false);
+
+INSERT INTO volunteer_information (first_name, last_name, phone_number, email_address, over_eighteen, approved, skills, mold,
+house_cleaners, other_allergies, animal_care, grooming, cleaning_kennels, walking_dogs, cat_whisperer, customer_service,
+lift_over_thirty_pounds, laundry, stocking_supplies, dander, pollen)
+VALUES ('Ethan', 'Mitchell', '555-321-6789', 'emitchell@gmail.com', true, 'pending', 'organization', true, true, 'dust, grass, cats', false,
+false, false, false, false, true, true, false, true, true, true);
+
+INSERT INTO volunteer_information (first_name, last_name, phone_number, email_address, over_eighteen, approved, skills, mold,
+house_cleaners, other_allergies, animal_care, grooming, cleaning_kennels, walking_dogs, cat_whisperer, customer_service,
+lift_over_thirty_pounds, laundry, stocking_supplies, dander, pollen)
+VALUES ('Samantha', 'Clark', '555-876-5432', 'samantha.c@aol.com', true, 'pending', 'anything', false, false, 'N/A', true, true, true, true, true, true, true, true, true, false, false);
+
+INSERT INTO volunteer_information (first_name, last_name, phone_number, email_address, over_eighteen, approved, skills,
+mold, house_cleaners, other_allergies, animal_care, grooming, cleaning_kennels, walking_dogs,
+cat_whisperer, customer_service, lift_over_thirty_pounds, laundry, stocking_supplies, dander, pollen)
+VALUES ('Noah', 'Bennett', '555-987-1212', 'ngb@gmail.com', false, 'pending', '-', false, false, 'lactose',
+true, true, true, true, true, false, true, true, true, false, false);
+
+INSERT INTO volunteer_information (first_name, last_name, phone_number, email_address, over_eighteen, approved, skills, mold,
+house_cleaners, other_allergies, animal_care, grooming, cleaning_kennels, walking_dogs, cat_whisperer, customer_service,
+lift_over_thirty_pounds, laundry, stocking_supplies, dander, pollen)
+VALUES ('Mia', 'Rodriguez', '555-888-7999', 'mias_dog_training@yahoo.com', true, 'pending', '10 years as a professional dog trainer', false, false,
+'no', true, true, true, true, false, false, true, true, true, false, false);
 
 COMMIT TRANSACTION;
