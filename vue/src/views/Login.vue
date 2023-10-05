@@ -36,13 +36,6 @@
     </div>
     <div class="empty">
       <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="nonstretch">
-      <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="2">
-      <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="3">
-    </div>
-    <div class="empty">
-      <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="nonstretch">
-      <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="2">
-      <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="3">
     </div>
   </div>
 </template>
@@ -292,6 +285,11 @@ button .input-data input{
   cursor: pointer;
   position: relative;
   z-index: 2;
+}
+
+.empty{
+  display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 1000px) {

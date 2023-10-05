@@ -99,6 +99,16 @@
                 </tr>
             </table>
         </div>
+        <div class="empty">
+          <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="nonstretch">
+          <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="2">
+          <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="3">
+        </div>
+        <div class="empty">
+          <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="nonstretch">
+          <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="2">
+          <img src="../img/1e4982cd-3f91-42c0-92d3-4f50f42496cb.png" alt="3">
+        </div>
     </div>
 </template>
 
@@ -222,12 +232,16 @@ data() {
   max-width: 75%;
   width: 75%;
   background-color: #FFFFFF;
-  padding: 64px 40px 40px 40px;
+  padding: 64px 40px 24px 40px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   margin: 0 auto;
   margin-top: 60px; /* Adjust this value to control the vertical position of the form */
   z-index: 1;
+}
+
+table {
+  width:100%;
 }
 
 .text {
@@ -244,9 +258,9 @@ data() {
   background-color: #5E8558;
   color: #FFFFFF;
   padding: 16px 8px;
-  margin: 24px 16px 0 0;
+  margin: 32px 16px 0 0;
   border-radius: 8px;
-  width: 40%;
+  width: 15%;
   border: none;
 }
 
@@ -258,9 +272,9 @@ data() {
   background-color: #D73533;
   color: #FFFFFF;
   padding: 16px 8px;
-  margin: 24px 0 0 0;
+  margin: 32px 0 0 0;
   border-radius: 8px;
-  width: 40%;
+  width: 15%;
   border: none;
 }
 
