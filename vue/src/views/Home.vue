@@ -6,8 +6,39 @@
      <div class="page-title2">
       <h2>Browse our available pets below!</h2>
     </div>
+    <table id="tblUsers">
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th>Filters: </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Species<input type="text" id="firstNameFilter" v-model="filter.type" />
+          </td>
+          <td>
+            Gender
+            <select id="genderFilter" v-model="filter.gender">
+              <option value>Show All</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </td>
+          <td>Good With Kids
+            <input type="checkbox" v-model="filter.goodWithKids" :value="true" />
+            
+          </td>
+          <td>Good With Other Pets
+            <input type="checkbox" v-model="filter.goodWithOtherAnimals" :value="true" />
+            
+          </td> 
+        </tr>
+      </tbody>
+    </table>
     <table>
-      <tr v-for="pet in pets" v-bind:key="pet.id">
+      <tr v-for="pet in filteredList" v-bind:key="pet.id">
         <div id="card">
           <img v-bind:src="pet.petPicture">
         <td class="pet-name">{{pet.name}}</td>
@@ -34,6 +65,12 @@ export default {
   name: "home",
   data(){
     return {
+      filter: {
+        type: "",
+        gender: "",
+        goodWithKids: null,
+        goodWithOtherAnimals: null
+      },
       pets:[]
     };
   },
@@ -44,6 +81,36 @@ export default {
       }
     );
   },
+  computed: {
+    filteredList() {
+      let filteredPets = this.pets;
+      if (this.filter.type != "") {
+        filteredPets = filteredPets.filter((pet) =>
+          pet.type
+            .toLowerCase()
+            .includes(this.filter.type.toLowerCase())
+        );
+      }
+      if (this.filter.gender != "") {
+        filteredPets = filteredPets.filter((pet) =>
+          pet.gender === this.filter.gender
+        );
+      }
+      if (this.filter.goodWithKids === true) {
+        filteredPets = filteredPets.filter((pet) =>
+          pet.goodWithKids === this.filter.goodWithKids
+        );
+      }
+      if (this.filter.goodWithOtherAnimals === true) {
+        filteredPets = filteredPets.filter((pet) =>
+          pet.goodWithOtherAnimals == this.filter.goodWithOtherAnimals
+            
+        );
+      }
+      
+      return filteredPets;
+    }
+  }
 };
 </script>
 
