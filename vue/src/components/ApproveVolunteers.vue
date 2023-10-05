@@ -2,6 +2,37 @@
 <div class="all-volunteer-apps">
     <div class="container">
         <h1 class="text">Approve Volunteers</h1>
+    <table id="filters">
+      <tbody>
+        <tr>
+          <td>
+            Filters: 
+          </td>
+          <td>
+            First Name<input type="text" id="firstNameFilter" v-model="filter.firstName" />
+          </td>
+          <td>
+            Last Name<input type="text" id="lastNameFilter" v-model="filter.lastName" />
+          </td>
+          <td>Over 18
+            <input type="checkbox" v-model="filter.overEighteen" :value="true" />
+            
+          </td>
+          <td>
+            Status
+            <select id="statusFilter" v-model="filter.status">
+              <option value>Show All</option>
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+            </select>
+          </td>
+          
+          
+        </tr>
+      </tbody>
+    </table>
+            
+            
             <table>
                 <!-- <tr v-for="application in applications" v-bind:key="application.applicationId">
                     <div id="card" v-show="application.approved =='pending' || application.approved == 'approved'">
@@ -33,7 +64,7 @@
                     </div>
                 </tr> -->
 
-                <tr v-for="application in applications" :key="application.applicationId">
+                <tr v-for="application in filteredList" :key="application.applicationId">
                     <!-- Individual Applications -->
                     <div id="card" v-show="application.approved === 'pending' || application.approved === 'approved'">
                         <tr class="application-input-group"><span style="font-weight: bold;">First Name:</span> {{ application.firstName }}</tr>
@@ -78,6 +109,12 @@ import AuthService from '../services/AuthService';
 export default {
 data() {
     return {
+        filter: {
+        firstName: "",
+        lastName: "",
+        overEighteen: null,
+        status: ""
+      },
         applications: [],
         user: {
         username: '',
@@ -119,7 +156,38 @@ data() {
                 VolunteerService.updateApplication(this.applications[indexNum])
             }  
         }
+    },
+    computed: {
+    filteredList() {
+      let filteredApplications = this.applications;
+      if (this.filter.firstName != "") {
+        filteredApplications = filteredApplications.filter((app) =>
+          app.firstName
+            .toLowerCase()
+            .includes(this.filter.firstName.toLowerCase())
+        );
+      }
+      if (this.filter.lastName != "") {
+        filteredApplications = filteredApplications.filter((app) =>
+          app.lastName
+            .toLowerCase()
+            .includes(this.filter.lastName.toLowerCase())
+        );
+      }
+      if (this.filter.overEighteen === true) {
+        filteredApplications = filteredApplications.filter((app) =>
+          app.overEighteen === this.filter.overEighteen
+        );
+      }
+      if (this.filter.status != "") {
+        filteredApplications = filteredApplications.filter((app) =>
+          app.approved === this.filter.status
+        );
+      }
+      
+      return filteredApplications;
     }
+  }
 };
 
 </script>
