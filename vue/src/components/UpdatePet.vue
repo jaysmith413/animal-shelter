@@ -32,14 +32,7 @@
             <label for="" style="opacity: 70%">Age</label>
           </div>
         </div>
-        <!-- Gender -->
-        <div class="form-row">
-          <div class="input-data">
-            <input type="text" required id="petGender" v-model="updatePet.gender" />
-            <div class="underline"></div>
-            <label for="" style="opacity: 70%">Gender</label>
-          </div>
-        </div>
+        
         <!-- Special Needs -->
         <div class="form-row">
           <div class="input-data">
@@ -57,6 +50,22 @@
           </div>
         </div>
 
+      <!-- Gender -->
+        <div class="form-row" style="padding-top: 32px">
+          <div class="field">
+            <label for="gender" class="subtitle">Gender</label>
+              <ul class="checkboxes">
+                <li class="checkbox" :class="{ 'selected-checkbox': updatePet.gender === 'male' }" @click="toggleGender('male')">
+                  <input class="checkbox-input" id="gender-male" name="male" type="radio" value="male" v-model="updatePet.gender" />
+                  <label class="checkbox-label" for="gender-male">Male</label>
+                </li>
+                <li class="checkbox" :class="{ 'selected-checkbox': updatePet.gender === 'female' }" @click="toggleGender('female')">
+                  <input class="checkbox-input" id="gender-female" name="female" type="radio" value="female" v-model="updatePet.gender" />
+                  <label class="checkbox-label" for="gender-female">Female</label>
+                </li>
+              </ul>
+          </div>
+        </div>
         <!-- Adoption Status -->
         <div class="form-row" style="padding-top: 48px">
           <div class="field">
@@ -218,6 +227,9 @@ export default {
     toggleGoodWithOtherAnimals(value) {
     this.updatePet.goodWithOtherAnimals = value;
     },
+    toggleGender(value) {
+        this.updatePet.gender = value;
+    }
   }
 }
 // Testing as an Upload:
