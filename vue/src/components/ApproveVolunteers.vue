@@ -2,23 +2,23 @@
 <div class="all-volunteer-apps">
     <div class="container">
         <h1 class="text">Approve Volunteers</h1>
-    <table id="filters">
+        <div id="showFilters">
+      <button v-on:click.prevent="showForm = !showForm">Show Filters</button>
+    </div>
+    <table id="filters" v-show="showForm === true">
       <tbody>
-        <tr>
-          <td>
-            Filters: 
+        <tr class="filterTr">
+          <td class="td1">
+            First Name: <input type="text" id="firstNameFilter" v-model="filter.firstName" />
           </td>
-          <td>
-            First Name<input type="text" id="firstNameFilter" v-model="filter.firstName" />
+          <td class="td1">
+            Last Name: <input type="text" id="lastNameFilter" v-model="filter.lastName" />
           </td>
-          <td>
-            Last Name<input type="text" id="lastNameFilter" v-model="filter.lastName" />
-          </td>
-          <td>Over 18
+          <td class="td1">Over 18
             <input type="checkbox" v-model="filter.overEighteen" :value="true" />
             
           </td>
-          <td>
+          <td class="td1">
             Status
             <select id="statusFilter" v-model="filter.status">
               <option value>Show All</option>
@@ -123,6 +123,7 @@ data() {
         confirmPassword: 'password',
         role: 'user',
       },
+      showForm: false,
         }
     },
     created() {
@@ -218,6 +219,28 @@ data() {
   padding: 0;
 }
 
+button {
+  background-color: #5E8558;
+  padding: 16px 0;
+  margin-top: 24px;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #7EA578;
+}
+
+#showFilters {
+padding-bottom: 24px;
+width: 25%;
+}
+
 #card {
     background-color: #F1F1F1;
     padding: 32px;
@@ -275,4 +298,10 @@ data() {
 .button-denied:hover {
   background-color: #E16866;
 }
+
+#filters {
+padding-bottom: 24px;
+border-spacing: 16px;
+}
+
 </style>

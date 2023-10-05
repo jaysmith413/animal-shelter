@@ -6,32 +6,32 @@
      <div class="page-title2">
       <h2>Browse our available pets below!</h2>
     </div>
+    <div id="showFilters">
+      <button v-on:click.prevent="showForm = !showForm">Show Filters</button>
+    </div>
+    
     <table id="tblUsers">
-      <thead>
-        <tr>
-          <th>&nbsp;</th>
-          <th>Filters: </th>
-        </tr>
-      </thead>
       <tbody>
-        <tr>
+        <tr id="filterTable" v-show="showForm === true">
           <td>
-            Species<input type="text" id="firstNameFilter" v-model="filter.type" />
+            Species: <input type="text" id="speciesFilter" v-model="filter.type" />
           </td>
           <td>
-            Gender
+            Gender: 
             <select id="genderFilter" v-model="filter.gender">
               <option value>Show All</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
           </td>
-          <td>Good With Kids
-            <input type="checkbox" v-model="filter.goodWithKids" :value="true" />
+         
+          <td class="tblData">Good With Kids
+            <input type="checkbox" id="good-with-kids" v-model="filter.goodWithKids" :value="true" />
             
           </td>
-          <td>Good With Other Pets
-            <input type="checkbox" v-model="filter.goodWithOtherAnimals" :value="true" />
+          <td class="tblData" id="data-pets">
+            <label for="good-with-pets">Good with Pets</label>
+            <input type="checkbox" id="good-with-pets" v-model="filter.goodWithOtherAnimals" :value="true" />
             
           </td> 
         </tr>
@@ -65,6 +65,7 @@ export default {
   name: "home",
   data(){
     return {
+      showForm: false,
       filter: {
         type: "",
         gender: "",
@@ -226,5 +227,153 @@ td{
   color: #5E8558;
   font-family: "Poppins", sans-serif;
   text-decoration: underline;
+}
+
+#tblUsers {
+justify-content: center;
+align-items: center;
+margin-top: 24px;
+background-color: #FFF4E9;
+border-radius: 8px;
+align-items: center;
+width: 65%;
+margin: 0 auto;
+}
+
+.tblData {
+  display: flex;
+  align-items: last baseline;
+  margin: 5px;
+  text-align: justify;
+}
+
+#showFilters {
+ margin: 0 auto;
+ width: 25%;
+ margin-bottom: 24px;
+}
+
+#good-with-kids {
+margin: 5px
+}
+
+#good-with-pets {
+  margin: 5px
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+}
+
+#speciesFilter {
+  margin: 5px;
+  padding: 0;
+    height: 30px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    font-size: 16px;
+}
+
+#genderFilter {
+  margin: 5px;
+  padding: 0;
+    height: 30px;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    font-size: 16px;
+}
+
+:root {
+  --form-control-color: rebeccapurple;
+  --form-control-disabled: #959495;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.form-control {
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+}
+
+.form-control + .form-control {
+  margin-top: 1em;
+}
+
+.form-control--disabled {
+  color: var(--form-control-disabled);
+  cursor: not-allowed;
+}
+
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}
+
+input[type="checkbox"]:disabled {
+  --form-control-color: var(--form-control-disabled);
+
+  color: var(--form-control-disabled);
+  cursor: not-allowed;
 }
 </style>
