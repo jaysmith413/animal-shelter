@@ -120,6 +120,8 @@ VALUES ('chubs', 'chinchilla', 9, 'male', 'yes- incontinence', 'no', 'https://a-
 INSERT INTO pet_information (pet_name, pet_type, pet_age, pet_gender, pet_special_needs, adopted, pet_picture, personality_traits, good_with_kids, good_with_other_animals)
 VALUES ('snowball', 'rat', 4, 'female', 'no', 'no', 'https://i.redd.it/z74e00rt1m151.jpg', 'energetic, loves to snuggle', 'yes', 'no');
 
+
+
 --Testing Volunteer Directory:
 --INSERT INTO users (username, password_hash, role, first_name, last_name, phone_number, email_address, has_logged_in)
 --VALUES ('newperson', 'password', 'user', 'Bob', 'Smith', '123-456-7890', 'bobsmith@gmail.com', true);

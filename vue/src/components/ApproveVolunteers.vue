@@ -104,15 +104,18 @@ data() {
                 alert('This application has already been approved')
             } else {
                 this.applications[indexNum].approved = 'approved';
-            this.user.username = this.applications[indexNum].emailAddress
-            this.user.firstName = this.applications[indexNum].firstName
-            this.user.lastName = this.applications[indexNum].lastName
-            this.user.phoneNumber = this.applications[indexNum].phoneNumber
-            this.user.emailAddress = this.applications[indexNum].emailAddress
-            this.applications[indexNum].phoneNumber = String(this.applications[indexNum].phoneNumber)
-            console.log(typeof this.applications[indexNum].phoneNumber)
-            VolunteerService.updateApplication(this.applications[indexNum])
-        AuthService.register(this.user)
+                this.user.username = this.applications[indexNum].emailAddress
+                this.user.firstName = this.applications[indexNum].firstName
+                this.user.lastName = this.applications[indexNum].lastName
+                this.user.phoneNumber = this.applications[indexNum].phoneNumber
+                this.user.emailAddress = this.applications[indexNum].emailAddress
+                this.applications[indexNum].phoneNumber = String(this.applications[indexNum].phoneNumber)
+                console.log(typeof this.applications[indexNum].phoneNumber)
+                if(confirm('Are you sure you want approve this application?')) {
+                    VolunteerService.updateApplication(this.applications[indexNum])
+                AuthService.register(this.user)
+                }
+                
             }
            
         },
